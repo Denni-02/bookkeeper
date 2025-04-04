@@ -27,6 +27,7 @@
   <artifactId>metadata-stores-etcd</artifactId>
   <name>Apache BookKeeper :: Metadata Drivers:: Etcd</name>
   <dependencies>
+
     <dependency>
       <groupId>org.apache.bookkeeper</groupId>
       <artifactId>bookkeeper-server</artifactId>
@@ -38,10 +39,10 @@
       <artifactId>jetcd-core-shaded</artifactId>
       <version>${project.version}</version>
       <exclusions>
-        <exclusion>
+        <!--exclusion>
           <groupId>io.etcd</groupId>
           <artifactId>*</artifactId>
-        </exclusion>
+        </exclusion>-->
         <exclusion>
           <groupId>io.vertx</groupId>
           <artifactId>*</artifactId>
