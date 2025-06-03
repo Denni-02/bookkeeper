@@ -1,0 +1,2202 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.bitness: 64
+[INFO] os.detected.version: 5.15
+[INFO] os.detected.version.major: 5
+[INFO] os.detected.version.minor: 15
+[INFO] os.detected.release: ubuntu
+[INFO] os.detected.release.version: 24.04
+[INFO] os.detected.release.like.ubuntu: true
+[INFO] os.detected.release.like.debian: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache BookKeeper :: Parent                                        [pom]
+[INFO] Apache BookKeeper :: Build Tools                                   [jar]
+[INFO] Apache BookKeeper :: Common for Native Libraries                   [jar]
+[INFO] Apache BookKeeper :: Test Tools                                    [jar]
+[INFO] Apache BookKeeper :: Circe Checksum Library                        [nar]
+[INFO] Apache BookKeeper :: Stats :: Parent                               [pom]
+[INFO] Apache BookKeeper :: Stats API                                     [jar]
+[INFO] Apache BookKeeper :: CPU Affinity Library                          [nar]
+[INFO] Apache BookKeeper :: Common                                        [jar]
+[INFO] Apache BookKeeper :: Common :: Allocator                           [jar]
+[INFO] Apache BookKeeper :: Stats Providers                               [pom]
+[INFO] Apache BookKeeper :: Stats Providers :: Codahale Metrics           [jar]
+[INFO] Apache BookKeeper :: Stats Providers :: Prometheus                 [jar]
+[INFO] Apache BookKeeper :: Stats Providers :: OpenTelemetry              [jar]
+[INFO] Apache BookKeeper :: Stats :: Utils                                [jar]
+[INFO] Apache BookKeeper :: Protocols                                     [jar]
+[INFO] Apache BookKeeper :: Structured Logger :: Parent                   [pom]
+[INFO] Apache BookKeeper :: Structured Logger :: API                      [jar]
+[INFO] Apache BookKeeper :: Structured Logger :: SLF4J Implementation     [jar]
+[INFO] Apache BookKeeper :: Tools :: Parent                               [pom]
+[INFO] Apache BookKeeper :: Tools :: Framework                            [jar]
+[INFO] Apache BookKeeper :: Native IO Library                             [nar]
+[INFO] Apache BookKeeper :: Http :: Http Server                           [jar]
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Vertx Http Server          [jar]
+[INFO] Apache BookKeeper :: Server                                        [jar]
+[INFO] Apache BookKeeper :: Benchmark                                     [jar]
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Servlet Http Server        [jar]
+[INFO] Apache BookKeeper :: Http                                          [pom]
+[INFO] Apache BookKeeper :: DistributedLog :: Parent                      [pom]
+[INFO] Apache BookKeeper :: DistributedLog :: Common                      [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: Protocol                    [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: Core Library                [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: IO :: FileSystem            [jar]
+[INFO] Apache BookKeeper :: DistributedLog :: IO                          [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Parent                      [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Common Classes for Tests    [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Common                      [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: API                         [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Proto                       [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: State Library               [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Parent           [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Parent [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Base [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: KV [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client      [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Parent           [pom]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Api              [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Impl             [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Server                      [jar]
+[INFO] Apache BookKeeper :: Stream Storage :: Common :: BK Grpc Name Resolver [jar]
+[INFO] Apache BookKeeper :: Tools :: Ledger                               [jar]
+[INFO] Apache BookKeeper :: Tools :: Stream                               [jar]
+[INFO] Apache BookKeeper :: Tools :: Perf                                 [jar]
+[INFO] Apache BookKeeper :: Tools                                         [jar]
+[INFO] Apache BookKeeper :: Metadata Drivers :: Parent                    [pom]
+[INFO] Apache BookKeeper :: Metadata Drivers:: jetcd-core shaded          [jar]
+[INFO] Apache BookKeeper :: Metadata Drivers:: Etcd                       [jar]
+[INFO] Apache BookKeeper :: Dist (Parent)                                 [pom]
+[INFO] Apache BookKeeper :: Dist (All)                                    [pom]
+[INFO] Apache BookKeeper :: Dist (Server)                                 [pom]
+[INFO] Apache BookKeeper :: Dist (Bkctl)                                  [pom]
+[INFO] Apache BookKeeper :: Shaded :: Parent                              [pom]
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-shaded            [jar]
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-tests-shaded      [jar]
+[INFO] Apache BookKeeper :: Shaded :: distributedlog-core-shaded          [jar]
+[INFO] Apache BookKeeper :: microbenchmarks                               [jar]
+[INFO] Apache BookKeeper :: Tests                                         [pom]
+[INFO] 
+[INFO] ------------------< org.apache.bookkeeper:bookkeeper >------------------
+[INFO] Building Apache BookKeeper :: Parent 4.18.0-SNAPSHOT              [1/67]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------------------< org.apache.bookkeeper:buildtools >------------------
+[INFO] Building Apache BookKeeper :: Build Tools 4.18.0-SNAPSHOT         [2/67]
+[INFO]   from buildtools/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ buildtools ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ buildtools ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ buildtools ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ buildtools ---
+[INFO] Copying 7 resources from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ buildtools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ buildtools ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/buildtools/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ buildtools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ buildtools ---
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:native-library-common >-------------
+[INFO] Building Apache BookKeeper :: Common for Native Libraries 4.18.0-SNAPSHOT [3/67]
+[INFO]   from native-library-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ native-library-common ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ native-library-common ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ native-library-common ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ native-library-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/native-library-common/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ native-library-common ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ native-library-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/native-library-common/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ native-library-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ native-library-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ------------------< org.apache.bookkeeper:testtools >-------------------
+[INFO] Building Apache BookKeeper :: Test Tools 4.18.0-SNAPSHOT          [4/67]
+[INFO]   from testtools/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ testtools ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ testtools ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ testtools ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ testtools ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ testtools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ testtools ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/testtools/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ testtools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ testtools ---
+[INFO] 
+[INFO] ----------------< org.apache.bookkeeper:circe-checksum >----------------
+[INFO] Building Apache BookKeeper :: Circe Checksum Library 4.18.0-SNAPSHOT [5/67]
+[INFO]   from circe-checksum/pom.xml
+[INFO] --------------------------------[ nar ]---------------------------------
+[INFO] 
+[INFO] --- nar:3.10.1:nar-validate (default-nar-validate) @ circe-checksum ---
+[INFO] Using AOL: amd64-Linux-gpp
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ circe-checksum ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ circe-checksum ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- nar:3.10.1:nar-download (default-nar-download) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Getting Nar dependencies
+[INFO] 
+[INFO] --- nar:3.10.1:nar-unpack (default-nar-unpack) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /home/denni/isw2/bookkeeper/circe-checksum/target/nar
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-configure (default-nar-gnu-configure) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-system-generate (default-nar-system-generate) @ circe-checksum ---
+[INFO] Generating /home/denni/isw2/bookkeeper/circe-checksum/target/nar/nar-generated/com/scurrilous/circe/checksum/NarSystem.java
+[INFO] Not using 'native-lib-loader' because it is not a dependency)
+[INFO] 
+[INFO] --- nar:3.10.1:nar-vcproj (default-nar-vcproj) @ circe-checksum ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ circe-checksum ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ circe-checksum ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- nar:3.10.1:nar-resources (default-nar-resources) @ circe-checksum ---
+[INFO] Copied 0 resources
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-resources (default-nar-gnu-resources) @ circe-checksum ---
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ circe-checksum ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 55 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-make (default-nar-gnu-make) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-compile (default-nar-compile) @ circe-checksum ---
+[INFO] Compiling 2 native files
+[INFO] Starting dependency analysis for 2 files.
+[INFO] 1 files are up to date.
+[INFO] 1 files to be recompiled from dependency analysis.
+[INFO] 1 total files to be compiled.
+[INFO] Found 16 processors available
+[INFO] Limited used processors to 1
+[INFO] 
+Starting Core 0 with 1 source files...
+[INFO] Linking...
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-process (default-nar-gnu-process) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-process-libraries (default-nar-process-libraries) @ circe-checksum ---
+[info] Running process libraries
+[info] Processing library Library: type: jni
+[INFO] 
+[INFO] --- nar:3.10.1:nar-test-unpack (default-nar-test-unpack) @ circe-checksum ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /home/denni/isw2/bookkeeper/circe-checksum/target/test-nar
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ circe-checksum ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/circe-checksum/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ circe-checksum ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- nar:3.10.1:nar-testCompile (default-nar-testCompile) @ circe-checksum ---
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ circe-checksum ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-test (default-nar-test) @ circe-checksum ---
+[INFO] 
+[INFO] --------< org.apache.bookkeeper.stats:bookkeeper-stats-parent >---------
+[INFO] Building Apache BookKeeper :: Stats :: Parent 4.18.0-SNAPSHOT     [6/67]
+[INFO]   from stats/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-stats-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-stats-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-stats-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------< org.apache.bookkeeper.stats:bookkeeper-stats-api >----------
+[INFO] Building Apache BookKeeper :: Stats API 4.18.0-SNAPSHOT           [7/67]
+[INFO]   from stats/bookkeeper-stats-api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-stats-api ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-stats-api ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-stats-api ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-stats-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-api/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-stats-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-stats-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-api/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-stats-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-stats-api ---
+[INFO] 
+[INFO] -----------------< org.apache.bookkeeper:cpu-affinity >-----------------
+[INFO] Building Apache BookKeeper :: CPU Affinity Library 4.18.0-SNAPSHOT [8/67]
+[INFO]   from cpu-affinity/pom.xml
+[INFO] --------------------------------[ nar ]---------------------------------
+[INFO] 
+[INFO] --- nar:3.10.1:nar-validate (default-nar-validate) @ cpu-affinity ---
+[INFO] Using AOL: amd64-Linux-gpp
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ cpu-affinity ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ cpu-affinity ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-download (default-nar-download) @ cpu-affinity ---
+[INFO] Getting Nar dependencies
+[INFO] Getting Nar dependencies
+[INFO] 
+[INFO] --- nar:3.10.1:nar-unpack (default-nar-unpack) @ cpu-affinity ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /home/denni/isw2/bookkeeper/cpu-affinity/target/nar
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-configure (default-nar-gnu-configure) @ cpu-affinity ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-system-generate (default-nar-system-generate) @ cpu-affinity ---
+[INFO] Generating /home/denni/isw2/bookkeeper/cpu-affinity/target/nar/nar-generated/org/apache/bookkeeper/utils/affinity/NarSystem.java
+[INFO] Not using 'native-lib-loader' because it is not a dependency)
+[INFO] 
+[INFO] --- nar:3.10.1:nar-vcproj (default-nar-vcproj) @ cpu-affinity ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ cpu-affinity ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ cpu-affinity ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/cpu-affinity/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- nar:3.10.1:nar-resources (default-nar-resources) @ cpu-affinity ---
+[INFO] Copied 0 resources
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-resources (default-nar-gnu-resources) @ cpu-affinity ---
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ cpu-affinity ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 8 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-make (default-nar-gnu-make) @ cpu-affinity ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-compile (default-nar-compile) @ cpu-affinity ---
+[INFO] Compiling 1 native files
+[INFO] Starting dependency analysis for 1 files.
+[INFO] 0 files are up to date.
+[INFO] 1 files to be recompiled from dependency analysis.
+[INFO] 1 total files to be compiled.
+[INFO] Found 16 processors available
+[INFO] Limited used processors to 1
+[INFO] 
+Starting Core 0 with 1 source files...
+[INFO] Linking...
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-process (default-nar-gnu-process) @ cpu-affinity ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-process-libraries (default-nar-process-libraries) @ cpu-affinity ---
+[info] Running process libraries
+[info] Processing library Library: type: jni
+[INFO] 
+[INFO] --- nar:3.10.1:nar-test-unpack (default-nar-test-unpack) @ cpu-affinity ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /home/denni/isw2/bookkeeper/cpu-affinity/target/test-nar
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ cpu-affinity ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/cpu-affinity/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ cpu-affinity ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- nar:3.10.1:nar-testCompile (default-nar-testCompile) @ cpu-affinity ---
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ cpu-affinity ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-test (default-nar-test) @ cpu-affinity ---
+[INFO] 
+[INFO] --------------< org.apache.bookkeeper:bookkeeper-common >---------------
+[INFO] Building Apache BookKeeper :: Common 4.18.0-SNAPSHOT              [9/67]
+[INFO]   from bookkeeper-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-common ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-common ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-common ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-common/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-common ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 67 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-common/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ---------< org.apache.bookkeeper:bookkeeper-common-allocator >----------
+[INFO] Building Apache BookKeeper :: Common :: Allocator 4.18.0-SNAPSHOT [10/67]
+[INFO]   from bookkeeper-common-allocator/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-common-allocator ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-common-allocator ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-common-allocator ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-common-allocator ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-common-allocator/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-common-allocator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-common-allocator ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-common-allocator/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-common-allocator ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-common-allocator ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] -------< org.apache.bookkeeper.stats:bookkeeper-stats-providers >-------
+[INFO] Building Apache BookKeeper :: Stats Providers 4.18.0-SNAPSHOT    [11/67]
+[INFO]   from stats/bookkeeper-stats-providers/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-stats-providers ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-stats-providers ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-stats-providers ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] -------< org.apache.bookkeeper.stats:codahale-metrics-provider >--------
+[INFO] Building Apache BookKeeper :: Stats Providers :: Codahale Metrics 4.18.0-SNAPSHOT [12/67]
+[INFO]   from stats/bookkeeper-stats-providers/codahale-metrics-provider/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ codahale-metrics-provider ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ codahale-metrics-provider ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ codahale-metrics-provider ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ codahale-metrics-provider ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-providers/codahale-metrics-provider/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ codahale-metrics-provider ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ codahale-metrics-provider ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-providers/codahale-metrics-provider/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ codahale-metrics-provider ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ codahale-metrics-provider ---
+[INFO] 
+[INFO] ------< org.apache.bookkeeper.stats:prometheus-metrics-provider >-------
+[INFO] Building Apache BookKeeper :: Stats Providers :: Prometheus 4.18.0-SNAPSHOT [13/67]
+[INFO]   from stats/bookkeeper-stats-providers/prometheus-metrics-provider/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ prometheus-metrics-provider ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ prometheus-metrics-provider ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ prometheus-metrics-provider ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ prometheus-metrics-provider ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-providers/prometheus-metrics-provider/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ prometheus-metrics-provider ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ prometheus-metrics-provider ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-providers/prometheus-metrics-provider/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ prometheus-metrics-provider ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ prometheus-metrics-provider ---
+[INFO] 
+[INFO] ---------< org.apache.bookkeeper.stats:otel-metrics-provider >----------
+[INFO] Building Apache BookKeeper :: Stats Providers :: OpenTelemetry 4.18.0-SNAPSHOT [14/67]
+[INFO]   from stats/bookkeeper-stats-providers/otel-metrics-provider/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ otel-metrics-provider ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ otel-metrics-provider ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ otel-metrics-provider ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ otel-metrics-provider ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-providers/otel-metrics-provider/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ otel-metrics-provider ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ otel-metrics-provider ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/bookkeeper-stats-providers/otel-metrics-provider/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ otel-metrics-provider ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ otel-metrics-provider ---
+[INFO] 
+[INFO] ---------< org.apache.bookkeeper.stats:bookkeeper-stats-utils >---------
+[INFO] Building Apache BookKeeper :: Stats :: Utils 4.18.0-SNAPSHOT     [15/67]
+[INFO]   from stats/utils/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] 1 problem was encountered while building the effective model for org.javassist:javassist:jar:3.21.0-GA during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-stats-utils ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-stats-utils ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-stats-utils ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-stats-utils ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/utils/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-stats-utils ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-stats-utils ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stats/utils/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-stats-utils ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-stats-utils ---
+[INFO] 
+[INFO] ---------------< org.apache.bookkeeper:bookkeeper-proto >---------------
+[INFO] Building Apache BookKeeper :: Protocols 4.18.0-SNAPSHOT          [16/67]
+[INFO]   from bookkeeper-proto/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-proto ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-proto ---
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile (default) @ bookkeeper-proto ---
+[INFO] Skipping compilation because target directory newer than sources.
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-proto ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-proto ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-proto/src/main/resources
+[INFO] Copying 3 resources from src/main/proto to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-proto ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-proto ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-proto/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-proto ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-proto ---
+[INFO] 
+[INFO] ----------< org.apache.bookkeeper:bookkeeper-slogger-parent >-----------
+[INFO] Building Apache BookKeeper :: Structured Logger :: Parent 4.18.0-SNAPSHOT [17/67]
+[INFO]   from bookkeeper-slogger/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-slogger-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-slogger-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-slogger-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:bookkeeper-slogger-api >------------
+[INFO] Building Apache BookKeeper :: Structured Logger :: API 4.18.0-SNAPSHOT [18/67]
+[INFO]   from bookkeeper-slogger/api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-slogger-api ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-slogger-api ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-slogger-api ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-slogger-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-slogger/api/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-slogger-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-slogger-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-slogger/api/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-slogger-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-slogger-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] -----------< org.apache.bookkeeper:bookkeeper-slogger-slf4j >-----------
+[INFO] Building Apache BookKeeper :: Structured Logger :: SLF4J Implementation 4.18.0-SNAPSHOT [19/67]
+[INFO]   from bookkeeper-slogger/slf4j/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-slogger-slf4j ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-slogger-slf4j ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-slogger-slf4j ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-slogger-slf4j ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-slogger/slf4j/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-slogger-slf4j ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-slogger-slf4j ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-slogger/slf4j/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-slogger-slf4j ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-slogger-slf4j ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] -----------< org.apache.bookkeeper:bookkeeper-tools-parent >------------
+[INFO] Building Apache BookKeeper :: Tools :: Parent 4.18.0-SNAPSHOT    [20/67]
+[INFO]   from tools/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-tools-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-tools-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-tools-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------< org.apache.bookkeeper:bookkeeper-tools-framework >----------
+[INFO] Building Apache BookKeeper :: Tools :: Framework 4.18.0-SNAPSHOT [21/67]
+[INFO]   from tools/framework/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-tools-framework ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-tools-framework ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-tools-framework ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-tools-framework ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/framework/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-tools-framework ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-tools-framework ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/framework/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-tools-framework ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-tools-framework ---
+[INFO] 
+[INFO] ------------------< org.apache.bookkeeper:native-io >-------------------
+[INFO] Building Apache BookKeeper :: Native IO Library 4.18.0-SNAPSHOT  [22/67]
+[INFO]   from native-io/pom.xml
+[INFO] --------------------------------[ nar ]---------------------------------
+[INFO] 
+[INFO] --- nar:3.10.1:nar-validate (default-nar-validate) @ native-io ---
+[INFO] Using AOL: amd64-Linux-gpp
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ native-io ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ native-io ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-download (default-nar-download) @ native-io ---
+[INFO] Getting Nar dependencies
+[INFO] Getting Nar dependencies
+[INFO] 
+[INFO] --- nar:3.10.1:nar-unpack (default-nar-unpack) @ native-io ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /home/denni/isw2/bookkeeper/native-io/target/nar
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-configure (default-nar-gnu-configure) @ native-io ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-system-generate (default-nar-system-generate) @ native-io ---
+[INFO] Generating /home/denni/isw2/bookkeeper/native-io/target/nar/nar-generated/org/apache/bookkeeper/util/nativeio/NarSystem.java
+[INFO] Not using 'native-lib-loader' because it is not a dependency)
+[INFO] 
+[INFO] --- nar:3.10.1:nar-vcproj (default-nar-vcproj) @ native-io ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ native-io ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ native-io ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/native-io/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- nar:3.10.1:nar-resources (default-nar-resources) @ native-io ---
+[INFO] Copied 0 resources
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-resources (default-nar-gnu-resources) @ native-io ---
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ native-io ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 6 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-make (default-nar-gnu-make) @ native-io ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-compile (default-nar-compile) @ native-io ---
+[INFO] Compiling 1 native files
+[INFO] Starting dependency analysis for 1 files.
+[INFO] 0 files are up to date.
+[INFO] 1 files to be recompiled from dependency analysis.
+[INFO] 1 total files to be compiled.
+[INFO] Found 16 processors available
+[INFO] Limited used processors to 1
+[INFO] 
+Starting Core 0 with 1 source files...
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c: In function ‘Java_org_apache_bookkeeper_common_util_nativeio_NativeIOJni_lseek’:
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:228:15: warning: conversion from ‘__off_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+[INFO] OUTPUT>  228 |     int res = lseek(fd, offset, whence);
+[INFO] OUTPUT>      |               ^~~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c: In function ‘Java_org_apache_bookkeeper_common_util_nativeio_NativeIOJni_pwrite’:
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:261:49: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘jint’ {aka ‘int’} may change the sign of the result [-Wsign-conversion]
+[INFO] OUTPUT>  261 |     int res = pwrite(fd, (const void*) pointer, count, offset);
+[INFO] OUTPUT>      |                                                 ^~~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:261:15: warning: conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+[INFO] OUTPUT>  261 |     int res = pwrite(fd, (const void*) pointer, count, offset);
+[INFO] OUTPUT>      |               ^~~~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c: In function ‘Java_org_apache_bookkeeper_common_util_nativeio_NativeIOJni_posix_1memalign’:
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:278:36: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘jint’ {aka ‘int’} may change the sign of the result [-Wsign-conversion]
+[INFO] OUTPUT>  278 |     int res = posix_memalign(&ptr, alignment, size);
+[INFO] OUTPUT>      |                                    ^~~~~~~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:278:47: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘jint’ {aka ‘int’} may change the sign of the result [-Wsign-conversion]
+[INFO] OUTPUT>  278 |     int res = posix_memalign(&ptr, alignment, size);
+[INFO] OUTPUT>      |                                               ^~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c: In function ‘Java_org_apache_bookkeeper_common_util_nativeio_NativeIOJni_pread’:
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:295:44: warning: conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘jlong’ {aka ‘long int’} may change the sign of the result [-Wsign-conversion]
+[INFO] OUTPUT>  295 |     long res =  pread(fd, (void*) pointer, size, offset);
+[INFO] OUTPUT>      |                                            ^~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c: In function ‘Java_org_apache_bookkeeper_common_util_nativeio_NativeIOJni_free’:
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:311:11: warning: passing argument 1 of ‘free’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+[INFO] OUTPUT>  311 |      free((const void*) pointer);
+[INFO] OUTPUT>      |           ^~~~~~~~~~~~~~~~~~~~~
+[INFO] OUTPUT>In file included from native-io-jni/cpp/native_io_jni.c:25:
+[INFO] OUTPUT>/usr/include/stdlib.h:687:25: note: expected ‘void *’ but argument is of type ‘const void *’
+[INFO] OUTPUT>  687 | extern void free (void *__ptr) __THROW;
+[INFO] OUTPUT>      |                   ~~~~~~^~~~~
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c: At top level:
+[INFO] OUTPUT>native-io-jni/cpp/native_io_jni.c:105:13: warning: ‘throwException’ defined but not used [-Wunused-function]
+[INFO] OUTPUT>  105 | static void throwException(JNIEnv* env, const char* message) {
+[INFO] OUTPUT>      |             ^~~~~~~~~~~~~~
+[INFO] Linking...
+[INFO] 
+[INFO] --- nar:3.10.1:nar-gnu-process (default-nar-gnu-process) @ native-io ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-process-libraries (default-nar-process-libraries) @ native-io ---
+[info] Running process libraries
+[info] Processing library Library: type: jni
+[INFO] 
+[INFO] --- nar:3.10.1:nar-test-unpack (default-nar-test-unpack) @ native-io ---
+[INFO] Getting Nar dependencies
+[INFO] Unpacking 0 dependencies to /home/denni/isw2/bookkeeper/native-io/target/test-nar
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ native-io ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/native-io/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ native-io ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- nar:3.10.1:nar-testCompile (default-nar-testCompile) @ native-io ---
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ native-io ---
+[INFO] 
+[INFO] --- nar:3.10.1:nar-test (default-nar-test) @ native-io ---
+[INFO] 
+[INFO] ---------------< org.apache.bookkeeper.http:http-server >---------------
+[INFO] Building Apache BookKeeper :: Http :: Http Server 4.18.0-SNAPSHOT [23/67]
+[INFO]   from bookkeeper-http/http-server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ http-server ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ http-server ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ http-server ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ http-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-http/http-server/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ http-server ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ http-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-http/http-server/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ http-server ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ http-server ---
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper.http:vertx-http-server >------------
+[INFO] Building Apache BookKeeper :: Bookkeeper Http :: Vertx Http Server 4.18.0-SNAPSHOT [24/67]
+[INFO]   from bookkeeper-http/vertx-http-server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ vertx-http-server ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ vertx-http-server ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ vertx-http-server ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ vertx-http-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-http/vertx-http-server/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ vertx-http-server ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ vertx-http-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-http/vertx-http-server/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ vertx-http-server ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ vertx-http-server ---
+[INFO] 
+[INFO] --------------< org.apache.bookkeeper:bookkeeper-server >---------------
+[INFO] Building Apache BookKeeper :: Server 4.18.0-SNAPSHOT             [25/67]
+[INFO]   from bookkeeper-server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-server ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-server ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-server ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-server ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 590 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /home/denni/isw2/bookkeeper/bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ByteBufVisitor.java:[261,24] order(java.nio.ByteOrder) in io.netty.buffer.ByteBuf has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ByteBufVisitor.java:[256,26] order() in io.netty.buffer.ByteBuf has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/NullMetadataBookieDriver.java:[397,21] notifyUnderReplicationLedgerChanged(org.apache.bookkeeper.proto.BookkeeperInternalCallbacks.GenericCallback<java.lang.Void>) in org.apache.bookkeeper.meta.LedgerUnderreplicationManager has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/ZkLedgerUnderreplicationManager.java:[892,17] notifyUnderReplicationLedgerChanged(org.apache.bookkeeper.proto.BookkeeperInternalCallbacks.GenericCallback<java.lang.Void>) in org.apache.bookkeeper.meta.LedgerUnderreplicationManager has been deprecated
+[INFO] /home/denni/isw2/bookkeeper/bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ByteBufVisitor.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/denni/isw2/bookkeeper/bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ByteBufVisitor.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-server/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug deprecation release 8] to target/test-classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-server ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running mytests.SanityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in mytests.SanityTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -------------< org.apache.bookkeeper:bookkeeper-benchmark >-------------
+[INFO] Building Apache BookKeeper :: Benchmark 4.18.0-SNAPSHOT          [26/67]
+[INFO]   from bookkeeper-benchmark/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-benchmark ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-benchmark ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-benchmark ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-benchmark ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-benchmark/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-benchmark ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 5 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-benchmark ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-benchmark/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-benchmark ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-benchmark ---
+[INFO] 
+[INFO] -----------< org.apache.bookkeeper.http:servlet-http-server >-----------
+[INFO] Building Apache BookKeeper :: Bookkeeper Http :: Servlet Http Server 4.18.0-SNAPSHOT [27/67]
+[INFO]   from bookkeeper-http/servlet-http-server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ servlet-http-server ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ servlet-http-server ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ servlet-http-server ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ servlet-http-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-http/servlet-http-server/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ servlet-http-server ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ servlet-http-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/bookkeeper-http/servlet-http-server/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ servlet-http-server ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ servlet-http-server ---
+[INFO] 
+[INFO] -------------< org.apache.bookkeeper.http:bookkeeper-http >-------------
+[INFO] Building Apache BookKeeper :: Http 4.18.0-SNAPSHOT               [28/67]
+[INFO]   from bookkeeper-http/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-http ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-http ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-http ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --------------< org.apache.distributedlog:distributedlog >--------------
+[INFO] Building Apache BookKeeper :: DistributedLog :: Parent 4.18.0-SNAPSHOT [29/67]
+[INFO]   from stream/distributedlog/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ distributedlog ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ distributedlog ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ distributedlog ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------< org.apache.distributedlog:distributedlog-common >-----------
+[INFO] Building Apache BookKeeper :: DistributedLog :: Common 4.18.0-SNAPSHOT [30/67]
+[INFO]   from stream/distributedlog/common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ distributedlog-common ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ distributedlog-common ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ distributedlog-common ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ distributedlog-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/common/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ distributedlog-common ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 42 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ distributedlog-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/common/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ distributedlog-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ distributedlog-common ---
+[INFO] 
+[INFO] ---------< org.apache.distributedlog:distributedlog-protocol >----------
+[INFO] Building Apache BookKeeper :: DistributedLog :: Protocol 4.18.0-SNAPSHOT [31/67]
+[INFO]   from stream/distributedlog/protocol/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ distributedlog-protocol ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ distributedlog-protocol ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ distributedlog-protocol ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ distributedlog-protocol ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/protocol/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ distributedlog-protocol ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 53 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ distributedlog-protocol ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/protocol/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ distributedlog-protocol ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ distributedlog-protocol ---
+[INFO] 
+[INFO] -----------< org.apache.distributedlog:distributedlog-core >------------
+[INFO] Building Apache BookKeeper :: DistributedLog :: Core Library 4.18.0-SNAPSHOT [32/67]
+[INFO]   from stream/distributedlog/core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ distributedlog-core ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ distributedlog-core ---
+[INFO] 
+[INFO] --- checkstyle:3.3.1:check (checkstyle) @ distributedlog-core ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ distributedlog-core ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ distributedlog-core ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ distributedlog-core ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 204 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ distributedlog-core ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/core/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ distributedlog-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ distributedlog-core ---
+[INFO] 
+[INFO] -------------------< org.apache.distributedlog:dlfs >-------------------
+[INFO] Building Apache BookKeeper :: DistributedLog :: IO :: FileSystem 4.18.0-SNAPSHOT [33/67]
+[INFO]   from stream/distributedlog/io/dlfs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ dlfs ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ dlfs ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ dlfs ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ dlfs ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/io/dlfs/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ dlfs ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 4 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ dlfs ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/distributedlog/io/dlfs/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ dlfs ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ dlfs ---
+[INFO] 
+[INFO] ------------< org.apache.distributedlog:distributedlog-io >-------------
+[INFO] Building Apache BookKeeper :: DistributedLog :: IO 4.18.0-SNAPSHOT [34/67]
+[INFO]   from stream/distributedlog/io/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ distributedlog-io ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ distributedlog-io ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ distributedlog-io ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:stream-storage-parent >-------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Parent 4.18.0-SNAPSHOT [35/67]
+[INFO]   from stream/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------< org.apache.bookkeeper.tests:stream-storage-tests-common >-------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Common Classes for Tests 4.18.0-SNAPSHOT [36/67]
+[INFO]   from stream/tests-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-tests-common ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-tests-common ---
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile (default) @ stream-storage-tests-common ---
+[INFO] Skipping compilation because target directory newer than sources.
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile-custom (default) @ stream-storage-tests-common ---
+[INFO] Skipping compilation because target directory newer than sources.
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-tests-common ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-tests-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/tests-common/src/main/resources
+[INFO] Copying 2 resources from src/main/proto to target/classes
+[INFO] Copying 2 resources from src/main/proto to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-tests-common ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-tests-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/tests-common/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-tests-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-tests-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:stream-storage-common >-------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Common 4.18.0-SNAPSHOT [37/67]
+[INFO]   from stream/common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-common ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-common ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-common ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/common/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-common ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 59 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-common ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/common/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-common ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --------------< org.apache.bookkeeper:stream-storage-api >--------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: API 4.18.0-SNAPSHOT [38/67]
+[INFO]   from stream/api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-api ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-api ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-api ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/api/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-api ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 82 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/api/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] -------------< org.apache.bookkeeper:stream-storage-proto >-------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Proto 4.18.0-SNAPSHOT [39/67]
+[INFO]   from stream/proto/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-proto ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-proto ---
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile (default) @ stream-storage-proto ---
+[INFO] Skipping compilation because target directory newer than sources.
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile-custom (default) @ stream-storage-proto ---
+[INFO] Skipping compilation because target directory newer than sources.
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-proto ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-proto ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/proto/src/main/resources
+[INFO] Copying 7 resources from src/main/proto to target/classes
+[INFO] Copying 7 resources from src/main/proto to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-proto ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 158 source files with javac [debug release 8] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-proto ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/proto/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-proto ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-proto ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] -------------------< org.apache.bookkeeper:statelib >-------------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: State Library 4.18.0-SNAPSHOT [40/67]
+[INFO]   from stream/statelib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ statelib ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ statelib ---
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile (default) @ statelib ---
+[INFO] Compiling 1 proto file(s) to /home/denni/isw2/bookkeeper/stream/statelib/target/generated-sources/protobuf/java
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ statelib ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ statelib ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/statelib/src/main/resources
+[INFO] Copying 1 resource from src/main/proto to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ statelib ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 87 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ statelib ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/statelib/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ statelib ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ statelib ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --------< org.apache.bookkeeper:stream-storage-clients-parent >---------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Clients :: Parent 4.18.0-SNAPSHOT [41/67]
+[INFO]   from stream/clients/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-clients-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-clients-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-clients-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------< org.apache.bookkeeper:stream-storage-java-client-parent >-------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Parent 4.18.0-SNAPSHOT [42/67]
+[INFO]   from stream/clients/java/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-java-client-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-java-client-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-java-client-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] -------< org.apache.bookkeeper:stream-storage-java-client-base >--------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Base 4.18.0-SNAPSHOT [43/67]
+[INFO]   from stream/clients/java/base/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-java-client-base ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-java-client-base ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-java-client-base ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-java-client-base ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/clients/java/base/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-java-client-base ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 52 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /home/denni/isw2/bookkeeper/stream/clients/java/base/src/main/java/org/apache/bookkeeper/clients/utils/GrpcUtils.java:[60,29] thisUsesUnstableApi() in io.grpc.CallCredentials has been deprecated
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-java-client-base ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/clients/java/base/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-java-client-base ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-java-client-base ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --------< org.apache.bookkeeper:stream-storage-java-kv-client >---------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: KV 4.18.0-SNAPSHOT [44/67]
+[INFO]   from stream/clients/java/kv/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-java-kv-client ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-java-kv-client ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-java-kv-client ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-java-kv-client ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/clients/java/kv/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-java-kv-client ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 13 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-java-kv-client ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/clients/java/kv/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-java-kv-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-java-kv-client ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ----------< org.apache.bookkeeper:stream-storage-java-client >----------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Clients :: Java Client 4.18.0-SNAPSHOT [45/67]
+[INFO]   from stream/clients/java/all/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-java-client ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-java-client ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-java-client ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-java-client ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/clients/java/all/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-java-client ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 9 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-java-client ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/clients/java/all/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-java-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-java-client ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --------< org.apache.bookkeeper:stream-storage-service-parent >---------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Storage :: Parent 4.18.0-SNAPSHOT [46/67]
+[INFO]   from stream/storage/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-service-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-service-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-service-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------< org.apache.bookkeeper:stream-storage-service-api >----------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Storage :: Api 4.18.0-SNAPSHOT [47/67]
+[INFO]   from stream/storage/api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-service-api ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-service-api ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-service-api ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-service-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/storage/api/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-service-api ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 35 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-service-api ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/storage/api/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-service-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-service-api ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ---------< org.apache.bookkeeper:stream-storage-service-impl >----------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Storage :: Impl 4.18.0-SNAPSHOT [48/67]
+[INFO]   from stream/storage/impl/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-service-impl ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-service-impl ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-service-impl ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-service-impl ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/storage/impl/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-service-impl ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 63 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-service-impl ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/storage/impl/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-service-impl ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-service-impl ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:stream-storage-server >-------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Server 4.18.0-SNAPSHOT [49/67]
+[INFO]   from stream/server/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-server ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-server ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-server ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/server/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-server ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 29 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-server ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/server/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-server ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-server ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:bk-grpc-name-resolver >-------------
+[INFO] Building Apache BookKeeper :: Stream Storage :: Common :: BK Grpc Name Resolver 4.18.0-SNAPSHOT [50/67]
+[INFO]   from stream/bk-grpc-name-resolver/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bk-grpc-name-resolver ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bk-grpc-name-resolver ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bk-grpc-name-resolver ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bk-grpc-name-resolver ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/bk-grpc-name-resolver/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bk-grpc-name-resolver ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bk-grpc-name-resolver ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/stream/bk-grpc-name-resolver/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bk-grpc-name-resolver ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bk-grpc-name-resolver ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] -----------< org.apache.bookkeeper:bookkeeper-tools-ledger >------------
+[INFO] Building Apache BookKeeper :: Tools :: Ledger 4.18.0-SNAPSHOT    [51/67]
+[INFO]   from tools/ledger/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-tools-ledger ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-tools-ledger ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-tools-ledger ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-tools-ledger ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-tools-ledger ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 12 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-tools-ledger ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/ledger/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-tools-ledger ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-tools-ledger ---
+[INFO] 
+[INFO] --------------< org.apache.bookkeeper:stream-storage-cli >--------------
+[INFO] Building Apache BookKeeper :: Tools :: Stream 4.18.0-SNAPSHOT    [52/67]
+[INFO]   from tools/stream/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ stream-storage-cli ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ stream-storage-cli ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ stream-storage-cli ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-storage-cli ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ stream-storage-cli ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 24 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-storage-cli ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/stream/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ stream-storage-cli ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ stream-storage-cli ---
+[INFO] 
+[INFO] ---------------< org.apache.bookkeeper:bookkeeper-perf >----------------
+[INFO] Building Apache BookKeeper :: Tools :: Perf 4.18.0-SNAPSHOT      [53/67]
+[INFO]   from tools/perf/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-perf ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-perf ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-perf ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-perf ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/perf/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-perf ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 30 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /home/denni/isw2/bookkeeper/tools/perf/src/main/java/org/apache/bookkeeper/tools/perf/journal/JournalWriter.java:[476,13] setNumJournalCallbackThreads(int) in org.apache.bookkeeper.conf.ServerConfiguration has been deprecated
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-perf ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/perf/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-perf ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-perf ---
+[INFO] 
+[INFO] ---------------< org.apache.bookkeeper:bookkeeper-tools >---------------
+[INFO] Building Apache BookKeeper :: Tools 4.18.0-SNAPSHOT              [54/67]
+[INFO]   from tools/all/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-tools ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-tools ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-tools ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- antrun:1.8:run (append-ledger-commands) @ bookkeeper-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (append-stream-commands) @ bookkeeper-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-tools ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-tools ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/tools/all/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-tools ---
+[INFO] 
+[INFO] ---< org.apache.bookkeeper.metadata.drivers:metadata-drivers-parent >---
+[INFO] Building Apache BookKeeper :: Metadata Drivers :: Parent 4.18.0-SNAPSHOT [55/67]
+[INFO]   from metadata-drivers/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ metadata-drivers-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ metadata-drivers-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ metadata-drivers-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------< org.apache.bookkeeper.metadata.drivers:jetcd-core-shaded >------
+[INFO] Building Apache BookKeeper :: Metadata Drivers:: jetcd-core shaded 4.18.0-SNAPSHOT [56/67]
+[INFO]   from metadata-drivers/jetcd-core-shaded/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ jetcd-core-shaded ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ jetcd-core-shaded ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ jetcd-core-shaded ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jetcd-core-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/metadata-drivers/jetcd-core-shaded/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ jetcd-core-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ jetcd-core-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/metadata-drivers/jetcd-core-shaded/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ jetcd-core-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ jetcd-core-shaded ---
+[INFO] 
+[INFO] ----< org.apache.bookkeeper.metadata.drivers:metadata-stores-etcd >-----
+[INFO] Building Apache BookKeeper :: Metadata Drivers:: Etcd 4.18.0-SNAPSHOT [57/67]
+[INFO]   from metadata-drivers/etcd/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ metadata-stores-etcd ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ metadata-stores-etcd ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ metadata-stores-etcd ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ metadata-stores-etcd ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ metadata-stores-etcd ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 25 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/helpers/KeyStream.java:[90,22] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[184,32] newBuilder() in io.etcd.jetcd.options.WatchOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[246,26] newBuilder() in io.etcd.jetcd.options.PutOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[295,22] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[300,22] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[375,26] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[541,22] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdRegistrationManager.java:[567,25] newBuilder() in io.etcd.jetcd.options.DeleteOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/helpers/KeySetReader.java:[86,52] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/helpers/KeySetReader.java:[213,56] newBuilder() in io.etcd.jetcd.options.WatchOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/helpers/ValueStream.java:[234,56] newBuilder() in io.etcd.jetcd.options.WatchOption has been deprecated
+[WARNING] /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/main/java/org/apache/bookkeeper/metadata/etcd/EtcdLedgerManager.java:[117,26] newBuilder() in io.etcd.jetcd.options.GetOption has been deprecated
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ metadata-stores-etcd ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/metadata-drivers/etcd/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ metadata-stores-etcd ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ metadata-stores-etcd ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ---------------< org.apache.bookkeeper:bookkeeper-dist >----------------
+[INFO] Building Apache BookKeeper :: Dist (Parent) 4.18.0-SNAPSHOT      [58/67]
+[INFO]   from bookkeeper-dist/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-dist ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-dist ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-dist ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] -------------< org.apache.bookkeeper:bookkeeper-dist-all >--------------
+[INFO] Building Apache BookKeeper :: Dist (All) 4.18.0-SNAPSHOT         [59/67]
+[INFO]   from bookkeeper-dist/all/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-dist-all ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-dist-all ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-dist-all ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ------------< org.apache.bookkeeper:bookkeeper-dist-server >------------
+[INFO] Building Apache BookKeeper :: Dist (Server) 4.18.0-SNAPSHOT      [60/67]
+[INFO]   from bookkeeper-dist/server/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-dist-server ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-dist-server ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-dist-server ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --------------------< org.apache.bookkeeper:bkctl >---------------------
+[INFO] Building Apache BookKeeper :: Dist (Bkctl) 4.18.0-SNAPSHOT       [61/67]
+[INFO]   from bookkeeper-dist/bkctl/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bkctl ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bkctl ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bkctl ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------------< org.apache.bookkeeper:shaded-parent >-----------------
+[INFO] Building Apache BookKeeper :: Shaded :: Parent 4.18.0-SNAPSHOT   [62/67]
+[INFO]   from shaded/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ shaded-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ shaded-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ shaded-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] -----------< org.apache.bookkeeper:bookkeeper-server-shaded >-----------
+[INFO] Building Apache BookKeeper :: Shaded :: bookkeeper-server-shaded 4.18.0-SNAPSHOT [63/67]
+[INFO]   from shaded/bookkeeper-server-shaded/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-server-shaded ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-server-shaded ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-server-shaded ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-server-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/shaded/bookkeeper-server-shaded/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-server-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-server-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/shaded/bookkeeper-server-shaded/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-server-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-server-shaded ---
+[INFO] 
+[INFO] --------< org.apache.bookkeeper:bookkeeper-server-tests-shaded >--------
+[INFO] Building Apache BookKeeper :: Shaded :: bookkeeper-server-tests-shaded 4.18.0-SNAPSHOT [64/67]
+[INFO]   from shaded/bookkeeper-server-tests-shaded/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ bookkeeper-server-tests-shaded ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ bookkeeper-server-tests-shaded ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ bookkeeper-server-tests-shaded ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ bookkeeper-server-tests-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/shaded/bookkeeper-server-tests-shaded/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ bookkeeper-server-tests-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ bookkeeper-server-tests-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/shaded/bookkeeper-server-tests-shaded/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ bookkeeper-server-tests-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ bookkeeper-server-tests-shaded ---
+[INFO] 
+[INFO] --------< org.apache.distributedlog:distributedlog-core-shaded >--------
+[INFO] Building Apache BookKeeper :: Shaded :: distributedlog-core-shaded 4.18.0-SNAPSHOT [65/67]
+[INFO]   from shaded/distributedlog-core-shaded/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ distributedlog-core-shaded ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ distributedlog-core-shaded ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ distributedlog-core-shaded ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ distributedlog-core-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/shaded/distributedlog-core-shaded/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ distributedlog-core-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ distributedlog-core-shaded ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/shaded/distributedlog-core-shaded/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ distributedlog-core-shaded ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ distributedlog-core-shaded ---
+[INFO] 
+[INFO] ---------------< org.apache.bookkeeper:microbenchmarks >----------------
+[INFO] Building Apache BookKeeper :: microbenchmarks 4.18.0-SNAPSHOT    [66/67]
+[INFO]   from microbenchmarks/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ microbenchmarks ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ microbenchmarks ---
+[INFO] 
+[INFO] --- checkstyle:3.3.1:check (checkstyle) @ microbenchmarks ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ microbenchmarks ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ microbenchmarks ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/microbenchmarks/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.12.1:compile (default-compile) @ microbenchmarks ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 14 source files with javac [debug deprecation release 8] to target/classes
+[WARNING] source value 8 is obsolete and will be removed in a future release
+[WARNING] target value 8 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] /home/denni/isw2/bookkeeper/microbenchmarks/src/main/java/org/apache/bookkeeper/common/MpScQueueBenchmark.java: /home/denni/isw2/bookkeeper/microbenchmarks/src/main/java/org/apache/bookkeeper/common/MpScQueueBenchmark.java uses unchecked or unsafe operations.
+[INFO] /home/denni/isw2/bookkeeper/microbenchmarks/src/main/java/org/apache/bookkeeper/common/MpScQueueBenchmark.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ microbenchmarks ---
+[INFO] skip non existing resourceDirectory /home/denni/isw2/bookkeeper/microbenchmarks/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ microbenchmarks ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ microbenchmarks ---
+[INFO] 
+[INFO] --------------< org.apache.bookkeeper.tests:tests-parent >--------------
+[INFO] Building Apache BookKeeper :: Tests 4.18.0-SNAPSHOT              [67/67]
+[INFO]   from tests/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-maven-version) @ tests-parent ---
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java-version) @ tests-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ tests-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache BookKeeper :: Parent 4.18.0-SNAPSHOT:
+[INFO] 
+[INFO] Apache BookKeeper :: Parent ........................ SUCCESS [  1.463 s]
+[INFO] Apache BookKeeper :: Build Tools ................... SUCCESS [  0.641 s]
+[INFO] Apache BookKeeper :: Common for Native Libraries ... SUCCESS [  0.143 s]
+[INFO] Apache BookKeeper :: Test Tools .................... SUCCESS [  0.219 s]
+[INFO] Apache BookKeeper :: Circe Checksum Library ........ SUCCESS [  8.813 s]
+[INFO] Apache BookKeeper :: Stats :: Parent ............... SUCCESS [  0.022 s]
+[INFO] Apache BookKeeper :: Stats API ..................... SUCCESS [  0.040 s]
+[INFO] Apache BookKeeper :: CPU Affinity Library .......... SUCCESS [  2.385 s]
+[INFO] Apache BookKeeper :: Common ........................ SUCCESS [  2.616 s]
+[INFO] Apache BookKeeper :: Common :: Allocator ........... SUCCESS [  0.144 s]
+[INFO] Apache BookKeeper :: Stats Providers ............... SUCCESS [  0.061 s]
+[INFO] Apache BookKeeper :: Stats Providers :: Codahale Metrics SUCCESS [  0.249 s]
+[INFO] Apache BookKeeper :: Stats Providers :: Prometheus . SUCCESS [  0.285 s]
+[INFO] Apache BookKeeper :: Stats Providers :: OpenTelemetry SUCCESS [  0.241 s]
+[INFO] Apache BookKeeper :: Stats :: Utils ................ SUCCESS [  0.158 s]
+[INFO] Apache BookKeeper :: Protocols ..................... SUCCESS [  0.237 s]
+[INFO] Apache BookKeeper :: Structured Logger :: Parent ... SUCCESS [  0.045 s]
+[INFO] Apache BookKeeper :: Structured Logger :: API ...... SUCCESS [  0.071 s]
+[INFO] Apache BookKeeper :: Structured Logger :: SLF4J Implementation SUCCESS [  0.077 s]
+[INFO] Apache BookKeeper :: Tools :: Parent ............... SUCCESS [  0.060 s]
+[INFO] Apache BookKeeper :: Tools :: Framework ............ SUCCESS [  1.166 s]
+[INFO] Apache BookKeeper :: Native IO Library ............. SUCCESS [  2.652 s]
+[INFO] Apache BookKeeper :: Http :: Http Server ........... SUCCESS [  0.025 s]
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Vertx Http Server SUCCESS [  0.086 s]
+[INFO] Apache BookKeeper :: Server ........................ SUCCESS [ 12.856 s]
+[INFO] Apache BookKeeper :: Benchmark ..................... SUCCESS [  0.908 s]
+[INFO] Apache BookKeeper :: Bookkeeper Http :: Servlet Http Server SUCCESS [  0.138 s]
+[INFO] Apache BookKeeper :: Http .......................... SUCCESS [  0.054 s]
+[INFO] Apache BookKeeper :: DistributedLog :: Parent ...... SUCCESS [  0.055 s]
+[INFO] Apache BookKeeper :: DistributedLog :: Common ...... SUCCESS [  0.929 s]
+[INFO] Apache BookKeeper :: DistributedLog :: Protocol .... SUCCESS [  0.881 s]
+[INFO] Apache BookKeeper :: DistributedLog :: Core Library  SUCCESS [  7.514 s]
+[INFO] Apache BookKeeper :: DistributedLog :: IO :: FileSystem SUCCESS [  1.373 s]
+[INFO] Apache BookKeeper :: DistributedLog :: IO .......... SUCCESS [  0.041 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Parent ...... SUCCESS [  0.033 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Common Classes for Tests SUCCESS [  0.239 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Common ...... SUCCESS [  1.572 s]
+[INFO] Apache BookKeeper :: Stream Storage :: API ......... SUCCESS [  1.462 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Proto ....... SUCCESS [  4.321 s]
+[INFO] Apache BookKeeper :: Stream Storage :: State Library SUCCESS [  2.076 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Parent SUCCESS [  0.026 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Parent SUCCESS [  0.043 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: Base SUCCESS [  2.049 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client :: KV SUCCESS [  0.774 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Clients :: Java Client SUCCESS [  0.778 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Parent SUCCESS [  0.047 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Api SUCCESS [  0.681 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Storage :: Impl SUCCESS [  1.445 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Server ...... SUCCESS [  1.294 s]
+[INFO] Apache BookKeeper :: Stream Storage :: Common :: BK Grpc Name Resolver SUCCESS [  0.936 s]
+[INFO] Apache BookKeeper :: Tools :: Ledger ............... SUCCESS [  0.638 s]
+[INFO] Apache BookKeeper :: Tools :: Stream ............... SUCCESS [  0.954 s]
+[INFO] Apache BookKeeper :: Tools :: Perf ................. SUCCESS [  1.355 s]
+[INFO] Apache BookKeeper :: Tools ......................... SUCCESS [  0.932 s]
+[INFO] Apache BookKeeper :: Metadata Drivers :: Parent .... SUCCESS [  0.033 s]
+[INFO] Apache BookKeeper :: Metadata Drivers:: jetcd-core shaded SUCCESS [  0.085 s]
+[INFO] Apache BookKeeper :: Metadata Drivers:: Etcd ....... SUCCESS [  1.154 s]
+[INFO] Apache BookKeeper :: Dist (Parent) ................. SUCCESS [  0.029 s]
+[INFO] Apache BookKeeper :: Dist (All) .................... SUCCESS [  0.528 s]
+[INFO] Apache BookKeeper :: Dist (Server) ................. SUCCESS [  0.411 s]
+[INFO] Apache BookKeeper :: Dist (Bkctl) .................. SUCCESS [  0.348 s]
+[INFO] Apache BookKeeper :: Shaded :: Parent .............. SUCCESS [  0.021 s]
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-shaded SUCCESS [  0.186 s]
+[INFO] Apache BookKeeper :: Shaded :: bookkeeper-server-tests-shaded SUCCESS [  0.134 s]
+[INFO] Apache BookKeeper :: Shaded :: distributedlog-core-shaded SUCCESS [  0.177 s]
+[INFO] Apache BookKeeper :: microbenchmarks ............... SUCCESS [  1.648 s]
+[INFO] Apache BookKeeper :: Tests ......................... SUCCESS [  0.029 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:14 min
+[INFO] Finished at: 2025-06-03T17:10:37+02:00
+[INFO] ------------------------------------------------------------------------

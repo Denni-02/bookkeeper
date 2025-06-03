@@ -106,6 +106,7 @@
     </developer>
   </developers>
   <properties>
+    <skipBookkeeperTests>false</skipBookkeeperTests>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -926,12 +927,16 @@
           <version>${maven-surefire-plugin.version}</version>
           <configuration>
             <excludedGroups>flaky</excludedGroups>
+            <skipTests>${skipBookkeeperTests}</skipTests>
           </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${maven-surefire-plugin.version}</version>
+          <configuration>
+            <skipTests>${skipBookkeeperTests}</skipTests>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>com.github.maven-nar</groupId>
@@ -987,6 +992,7 @@
           <forkCount>${forkCount.variable}</forkCount>
           <reuseForks>false</reuseForks>
           <trimStackTrace>false</trimStackTrace>
+          <skipTests>${skipBookkeeperTests}</skipTests>
           <forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
           <rerunFailingTestsCount>${testRetryCount}</rerunFailingTestsCount>
         </configuration>
@@ -1282,6 +1288,7 @@
               <redirectTestOutputToFile>false</redirectTestOutputToFile>
               <forkCount>${forkCount.variable}</forkCount>
               <reuseForks>false</reuseForks>
+              <skipTests>${skipBookkeeperTests}</skipTests>
               <forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
               <trimStackTrace>false</trimStackTrace>
               <rerunFailingTestsCount>0</rerunFailingTestsCount>
@@ -1302,6 +1309,7 @@
               <redirectTestOutputToFile>false</redirectTestOutputToFile>
               <forkCount>${forkCount.variable}</forkCount>
               <reuseForks>false</reuseForks>
+              <skipTests>${skipBookkeeperTests}</skipTests>
               <forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
               <trimStackTrace>false</trimStackTrace>
             </configuration>
