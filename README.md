@@ -3,7 +3,14 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.bookkeeper/bookkeeper/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.bookkeeper/bookkeeper)
 
 # Dennis CI
-Build status below  
+Build status below 
+![CI Status](https://github.com/Denni-02/bookkeeper/actions/workflows/denni-ci.yml/badge.svg?branch=testing-project-ISW2)
+
+## Workflow GitHub Actions (CI)
+
+Il file del workflow personalizzato usato per il progetto si trova in: **.github/workflows/denni-ci.yml**
+
+
 ## Tested classes
 ## Build & Java Environment
 - **JDK version**: 21 (OpenJDK)
@@ -11,6 +18,8 @@ Build status below
 - **JVM version**: 21 (OpenJDK)
 - **javac compiler version**: 21.0.7 (OpenJDK)
 - **Maven target/source version**: 8 
+
+---
 
 # Apache BookKeeper (Original)
 
