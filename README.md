@@ -2,7 +2,17 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.apache.bookkeeper/bookkeeper/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.apache.bookkeeper/bookkeeper)
 
-# Apache BookKeeper
+# Dennis CI
+Build status below  
+## Tested classes
+## Build & Java Environment
+- **JDK version**: 21 (OpenJDK)
+- **JRE version**: 21 (OpenJDK)
+- **JVM version**: 21 (OpenJDK)
+- **javac compiler version**: 21.0.7 (OpenJDK)
+- **Maven target/source version**: 8 
+
+# Apache BookKeeper (Original)
 
 Apache BookKeeper is a scalable, fault-tolerant and low latency storage service optimized for append-only workloads.
 
