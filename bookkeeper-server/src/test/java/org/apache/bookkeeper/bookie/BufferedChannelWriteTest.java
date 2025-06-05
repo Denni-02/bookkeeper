@@ -2,10 +2,11 @@ package org.apache.bookkeeper.bookie;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.After;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class BufferedChannelWriteTest extends BufferedChannelTestBase {
 
@@ -15,47 +16,50 @@ public class BufferedChannelWriteTest extends BufferedChannelTestBase {
         super();
     }
 
-    @AfterEach
-    void releaseBufferIfNotNull() {
+    @After
+    public void releaseBufferIfNotNull() {
         if (buf != null && buf.refCnt() > 0) {
             buf.release();
         }
     }
 
     @Test
-    void writeWhenBufferIsNull() {
-        assertThrows(NullPointerException.class, () -> {
+    public void writeWhenBufferIsNull() {
+        try {
             sut.write(null);
-        });
+            fail("Expected NullPointerException");
+        } catch (NullPointerException e) {
+            // expected
+        } catch (Exception e) {
+            fail("Expected NullPointerException but got: " + e);
+        }
     }
 
     @Test
-    void writeWithEmptyBuffer() throws Exception {
-        // Arrange: creo un buffer vuoto
-        buf = ByteBufAllocator.DEFAULT.buffer(0); // capacity = 0
+    public void writeWithEmptyBuffer() throws Exception {
+        // Arrange
+        buf = ByteBufAllocator.DEFAULT.buffer(0);
 
-        // Act: eseguo il metodo da testare
+        // Act
         sut.write(buf);
 
-        // Assert: nessun byte è stato scritto
-        assertEquals(0, sut.getNumOfBytesInWriteBuffer(), "Il write buffer deve rimanere vuoto");
-        assertEquals(0, sut.position(), "La posizione del file deve rimanere 0");
+        // Assert
+        assertEquals("Il write buffer deve rimanere vuoto", 0, sut.getNumOfBytesInWriteBuffer());
+        assertEquals("La posizione del file deve rimanere 0", 0, sut.position());
     }
 
     @Test
-    void writeWithNonEmptyBuffer() throws Exception {
-        // Arrange: creo un buffer con 3 byte ("abc")
+    public void writeWithNonEmptyBuffer() throws Exception {
+        // Arrange
         String input = "abc";
         buf = ByteBufAllocator.DEFAULT.buffer();
         buf.writeBytes(input.getBytes());
 
-        // Act: eseguo il metodo da testare
+        // Act
         sut.write(buf);
 
         // Assert
-        assertEquals(3, sut.getNumOfBytesInWriteBuffer(), "Devono essere presenti 3 byte nel write buffer");
-        assertEquals(3, sut.position(), "La posizione del canale deve essere avanzata di 3");
+        assertEquals("Devono essere presenti 3 byte nel write buffer", 3, sut.getNumOfBytesInWriteBuffer());
+        assertEquals("La posizione del canale deve essere avanzata di 3", 3, sut.position());
     }
-
-
 }
