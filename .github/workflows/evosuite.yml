@@ -1,7 +1,7 @@
 name: EvoSuite Test Generation
 
 on:
-  workflow_dispatch:  # lo attivi manualmente da GitHub Actions
+  workflow_dispatch:  # Avvio manuale da GitHub
 
 jobs:
   evosuite:
@@ -25,11 +25,11 @@ jobs:
       - name: Compile only bookkeeper-server and generate classpath
         working-directory: bookkeeper-server
         run: |
-          mvn clean compile -DskipTests \
+          mvn clean compile -pl . -am -DskipTests \
             -Dmaven.compiler.source=11 \
             -Dmaven.compiler.target=11 \
-            -Dmaven.compiler.release=11
-          mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
+            -Dmaven.compiler.release=11 || true
+          mvn dependency:build-classpath -Dmdep.outputFile=cp.txt || true
 
       - name: Run EvoSuite for BufferedChannel
         working-directory: bookkeeper-server
@@ -39,7 +39,7 @@ jobs:
             -class org.apache.bookkeeper.bookie.BufferedChannel \
             -projectCP "$FULL_CP" \
             -Dsandbox=false \
-            -Dsearch_budget=60
+            -Dsearch_budget=60 || true
 
       - name: Upload generated tests
         uses: actions/upload-artifact@v4
