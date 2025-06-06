@@ -1,7 +1,7 @@
 name: EvoSuite Test Generation
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # avvio manuale da GitHub
 
 jobs:
   evosuite:
@@ -17,19 +17,17 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Clean local Maven repo for BookKeeper
-        run: rm -rf ~/.m2/repository/org/apache/bookkeeper
-
       - name: Download EvoSuite
         run: |
           mkdir -p tools/evosuite
           wget -O tools/evosuite/evosuite-1.2.0.jar https://github.com/EvoSuite/evosuite/releases/download/v1.2.0/evosuite-1.2.0.jar
 
-      - name: Compile bookkeeper-server and generate classpath
+      - name: Compile entire project (all modules needed for bookkeeper-server)
+        run: mvn clean install -DskipTests -pl bookkeeper-server -am
+
+      - name: Generate classpath for bookkeeper-server
         working-directory: bookkeeper-server
-        run: |
-          mvn clean install -DskipTests
-          mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
+        run: mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 
       - name: Run EvoSuite for BufferedChannel
         working-directory: bookkeeper-server
