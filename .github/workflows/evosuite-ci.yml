@@ -29,9 +29,10 @@ jobs:
           mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 
       - name: Run EvoSuite for BufferedChannel
+        working-directory: bookkeeper-server
         run: |
           FULL_CP="target/classes:$(cat cp.txt)"
-          java -jar tools/evosuite/evosuite-1.2.0.jar \
+          java -jar ../tools/evosuite/evosuite-1.2.0.jar \
             -class org.apache.bookkeeper.bookie.BufferedChannel \
             -projectCP "$FULL_CP" \
             -Dsandbox=false \
