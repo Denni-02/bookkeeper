@@ -72,12 +72,11 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
 
         } catch (Throwable t) {
             if (expected == null) {
-                throw t; // ❌ non era attesa nessuna eccezione
+                throw t;
             }
             if (!expected.isInstance(t)) {
                 throw new AssertionError("Expected " + expected.getSimpleName() + " but got: " + t.getClass().getSimpleName(), t);
             }
-            // ✅ se ci arrivi qui: tutto ok
         }
     }
 
