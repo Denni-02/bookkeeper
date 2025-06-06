@@ -1,7 +1,7 @@
 name: EvoSuite Test Generation
 
 on:
-  workflow_dispatch:  # Avvio manuale da GitHub
+  workflow_dispatch:  # lo attivi manualmente da GitHub
 
 jobs:
   evosuite:
@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Java 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '11'
           distribution: 'temurin'
@@ -22,14 +22,14 @@ jobs:
           mkdir -p tools/evosuite
           wget -O tools/evosuite/evosuite-1.2.0.jar https://github.com/EvoSuite/evosuite/releases/download/v1.2.0/evosuite-1.2.0.jar
 
+      - name: Clean all old builds
+        run: find . -name target -type d -exec rm -rf {} +
+
       - name: Compile only bookkeeper-server and generate classpath
         working-directory: bookkeeper-server
         run: |
-          mvn clean compile -pl . -am -DskipTests \
-            -Dmaven.compiler.source=11 \
-            -Dmaven.compiler.target=11 \
-            -Dmaven.compiler.release=11 || true
-          mvn dependency:build-classpath -Dmdep.outputFile=cp.txt || true
+          mvn clean compile -pl . -am -DskipTests -Dmaven.compiler.release=11 -Dmaven.compiler.source=11 -Dmaven.compiler.target=11 -DforceJavacCompilerUse=true
+          mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 
       - name: Run EvoSuite for BufferedChannel
         working-directory: bookkeeper-server
