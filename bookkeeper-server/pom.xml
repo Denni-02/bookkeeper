@@ -25,6 +25,8 @@
   <artifactId>bookkeeper-server</artifactId>
   <name>Apache BookKeeper :: Server</name>
   <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <skipBookkeeperTests>false</skipBookkeeperTests>
   </properties>
   <dependencies>
