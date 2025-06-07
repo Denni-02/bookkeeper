@@ -4,11 +4,9 @@ import io.netty.buffer.ByteBuf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
-
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
@@ -22,18 +20,23 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
 
     public BufferedChannelReadTest(ByteBuf dest, int pos, int len, Class<? extends Throwable> expected, String written) throws IOException {
         super();
-        this.dest = dest;
-        this.pos = pos;
-        this.len = len;
-        this.expected = expected;
-        this.written = written;
+        this.dest = dest; //  buffer destinazione in cui BufferedChannel scriverà i byte letti.
+        this.pos = pos; // posizione da cui cominciare a leggere nel file simulato
+        this.len = len; // byte da legegre
+        this.expected = expected; // ececzione attesa
+        this.written = written; // simula dati presenti nel file prima della lettura
 
         sut.write(wrap(written));
     }
 
     @Parameterized.Parameters
     public static Collection<Object[]> inputs() {
-        String sample = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"; // 32 chars
+        String sample = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"; // 30 chars
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 10; i++) {
+            sb.append(sample);
+        }
+        String bigSample = sb.toString();
 
         return Arrays.asList(new Object[][]{
                 {null, 0, 0, NullPointerException.class, sample},
@@ -42,10 +45,16 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
                 {emptyBuf(8), 0, 8, null, sample},
                 {emptyBuf(8), 1, 8, null, sample},
                 {emptyBuf(3), 5, 3, null, sample},
-                {emptyBuf(31), 0, 31, null, sample},
-                {emptyBuf(3), 28, 3, null, sample}
-                //{emptyBuf(31), 0, 31, IOException.class, sample},
-                //{emptyBuf(3), 28, 3, IOException.class, sample}
+                //{emptyBuf(31), 0, 31, null, sample},
+                //{emptyBuf(3), 28, 3, null, sample},
+                // tolti commenti
+                {emptyBuf(31), 0, 31, IOException.class, sample},
+                {emptyBuf(3), 28, 3, IOException.class, sample},
+                {emptyBuf(60), 0, 60, IOException.class, sample},
+                {emptyBuf(100), 10, 200, IllegalArgumentException.class, bigSample},
+                {emptyBuf(256), 41, 256, null, bigSample}
+                //{emptyBuf(64), 80, 8, null, bigSample},
+                //{emptyBuf(64), 0, 8, IOException.class, bigSample}
         });
     }
 
@@ -64,6 +73,7 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
                 throw new IOException("Short read");
             }
 
+            // controlla che contenuto letto = contenuto scritto
             if (expected == null) {
                 String exp = written.substring(pos, pos + len);
                 String act = extractString(len, dest);
