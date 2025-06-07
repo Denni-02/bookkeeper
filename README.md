@@ -10,10 +10,9 @@ Il file del workflow personalizzato usato per il progetto si trova in: **.github
 
 ## Tested classes
 ## Build & Java Environment
-- **JDK version**: 21 (OpenJDK)
-- **JRE version**: 21 (OpenJDK)
-- **JVM version**: 21 (OpenJDK)
-- **javac compiler version**: 21.0.7 (OpenJDK)
+- **JDK version**: 8 (OpenJDK)
+- **JRE version**: 8 (OpenJDK)
+- **JVM version**: 8 (OpenJDK)
 - **Maven target/source version**: 8 
 
 ---
