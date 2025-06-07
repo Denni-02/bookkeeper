@@ -25,11 +25,26 @@
   <artifactId>bookkeeper-server</artifactId>
   <name>Apache BookKeeper :: Server</name>
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <evosuiteVersion>1.0.6</evosuiteVersion>
+    <targetClass>org.apache.bookkeeper.bookie.BufferedChannel</targetClass>
+    <targetFolder>src/test/evosuite</targetFolder>
+    <!--<maven.compiler.release>8</maven.compiler.release>-->
     <skipBookkeeperTests>false</skipBookkeeperTests>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-buffer</artifactId>
+      <version>4.1.103.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.evosuite</groupId>
+      <artifactId>evosuite-standalone-runtime</artifactId>
+      <version>${evosuiteVersion}</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.apache.bookkeeper</groupId>
       <artifactId>bookkeeper-common</artifactId>
@@ -253,6 +268,38 @@
     <testSourceDirectory>${basedir}/src/test/java</testSourceDirectory>
     <plugins>
       <plugin>
+        <groupId>org.evosuite.plugins</groupId>
+        <artifactId>evosuite-maven-plugin</artifactId>
+        <version>${evosuiteVersion}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare</goal>
+            </goals>
+            <phase>process-test-classes</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>add-test-source</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${targetFolder}</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <executions>
@@ -301,7 +348,7 @@
           <properties>
             <property>
               <name>listener</name>
-              <value>org.apache.bookkeeper.common.testing.util.TimedOutTestsListener</value>
+              <value>org.apache.bookkeeper.common.testing.util.TimedOutTestsListener,org.evosuite.runtime.InitializingListene</value>
             </property>
           </properties>
         </configuration>
@@ -335,6 +382,12 @@
     </plugins>
   </build>
   <profiles>
+    <profile>
+      <id>evosuite-bufferedchannel</id>
+      <properties>
+        <targetClass>org.apache.bookkeeper.bookie.BufferedChannel</targetClass>
+      </properties>
+    </profile>
     <profile>
       <id>vertx-http-server</id>
       <dependencies>
@@ -387,4 +440,11 @@
       </build>
     </profile>
   </profiles>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>EvoSuite</id>
+      <name>EvoSuite Repository</name>
+      <url>http://www.evosuite.org/m2</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
