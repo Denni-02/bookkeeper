@@ -16,7 +16,9 @@ public class BufferedChannelOtherTest extends BufferedChannelTestBase {
         super();
     }
 
-    // forceWrite(true) deve invocare fileChannel.force(true) senza eccezioni.
+    // METODI AGGIUNTI PER AUMENTARE ADEQUACY:
+
+    // T15: forceWrite(true) deve invocare fileChannel.force(true) senza eccezioni.
     @Test
     public void testForceWriteTrue() throws Exception {
         // Scrive qualcosa nel buffer
@@ -32,25 +34,27 @@ public class BufferedChannelOtherTest extends BufferedChannelTestBase {
         assertEquals(sut.getFileChannelPosition(), pos);
     }
 
-    // forceWrite(false) deve invocare fileChannel.force(false) senza eccezioni.
+    // T16: forceWrite(false) deve invocare fileChannel.force(false) senza eccezioni.
     @Test
     public void testForceWriteFalse() throws Exception {
+        
         sut.write(wrap("altri dati"));
 
-        long pos = sut.forceWrite(false);
+        long pos = sut.forceWrite(false); // verifica che sia stato chiamato fileChannel.force(false)
 
         verify(fileChannelMock).force(false);
+
         assertEquals(sut.getFileChannelPosition(), pos);
     }
 
-    // close() su istanza non chiusa chiama release e fileChannel.close(), imposta closed = true
+    // T17: close() su istanza non chiusa chiama release e fileChannel.close(), imposta closed = true
     @Test
     public void testCloseProperly() throws Exception {
         sut.close();
         verify(fileChannelMock).close(); // verifica che il fileChannel venga chiuso
     }
 
-    // close() su istanza già chiusa non fa nulla
+    // T18: close() su istanza già chiusa non fa nulla
     @Test
     public void testCloseTwiceDoesNothing() throws Exception {
         sut.close();   // prima chiusura effettiva
@@ -58,7 +62,7 @@ public class BufferedChannelOtherTest extends BufferedChannelTestBase {
         verify(fileChannelMock, times(1)).close(); // chiusura chiamata una sola volta
     }
 
-    // close() con IOException da fileChannel.close() → eccezione propagata
+    // T19: close() con IOException da fileChannel.close() → eccezione propagata
     @Test(expected = IOException.class)
     public void testCloseThrowsIOException() throws Exception {
         FileChannel failingChannel = mock(FileChannel.class);
@@ -71,7 +75,7 @@ public class BufferedChannelOtherTest extends BufferedChannelTestBase {
         failingSut.close();
     }
 
-    // close() con eccezione da release(writeBuffer) → eccezione propagata
+    // T20: close() con eccezione da release(writeBuffer) → eccezione propagata
     @Test(expected = RuntimeException.class)
     public void testCloseThrowsOnRelease() throws Exception {
         FileChannel dummyChannel = mock(FileChannel.class);
@@ -86,6 +90,8 @@ public class BufferedChannelOtherTest extends BufferedChannelTestBase {
 
         sutWithBrokenBuffer.close(); // deve sollevare RuntimeException
     }
+
+    // ALTRI TEST GENERATI VIA PROMPT SULLE VARIANTI DI forceWrite:
 
     @Test
     public void testFlushAndForceWriteTrue() throws Exception {
@@ -131,7 +137,38 @@ public class BufferedChannelOtherTest extends BufferedChannelTestBase {
         verify(fileChannelMock, never()).force(anyBoolean());
     }
 
-    
+    // METODI AGGIUNTI PER AUMENTARE MUTATION COVERAGE
+
+    @Test
+    public void testForceWriteSkipsUpdateWhenBoundIsZero() throws Exception { // T27
+        BufferedChannel flushSut = new BufferedChannel(ByteBufAllocator.DEFAULT, fileChannelMock, 100, 100, 0);
+
+        // Scriviamo nel buffer
+        flushSut.write(wrap("1234567890")); // 10 byte
+
+        // Chiamata a forceWrite: non deve aggiornare unpersistedBytes
+        flushSut.forceWrite(false);
+
+        // Verifica che unpersistedBytes sia ancora 0
+        assertEquals("unpersistedBytes deve rimanere 0", 0, flushSut.getUnpersistedBytes());
+    }
+
+    @Test
+    public void testForceWriteUpdatesUnpersistedBytes() throws Exception {
+        // BufferedChannel con unpersistedBytesBound > 0 e buffer più grande dei dati scritti
+        BufferedChannel flushSut = new BufferedChannel(ByteBufAllocator.DEFAULT, fileChannelMock, 100, 100, 1000);
+
+        // Scritto 10 byte (minori di writeCapacity)
+        flushSut.write(wrap("1234567890"));
+
+        // Non è stato flushato, quindi i byte sono ancora nel buffer
+        flushSut.forceWrite(false);
+
+        // Verifica che i 10 byte ancora nel buffer siano contati
+        assertEquals("unpersistedBytes deve essere aggiornato a 10", 10, flushSut.getUnpersistedBytes());
+    }
+
+
 }
 
 

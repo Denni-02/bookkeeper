@@ -39,22 +39,17 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
         String bigSample = sb.toString();
 
         return Arrays.asList(new Object[][]{
-                {null, 0, 0, NullPointerException.class, sample},
-                {emptyBuf(0), 0, 0, null, sample},
-                {emptyBuf(1), 0, 1, null, sample},
-                {emptyBuf(8), 0, 8, null, sample},
-                {emptyBuf(8), 1, 8, null, sample},
-                {emptyBuf(3), 5, 3, null, sample},
-                //{emptyBuf(31), 0, 31, null, sample},
-                //{emptyBuf(3), 28, 3, null, sample},
-                // tolti commenti
-                {emptyBuf(31), 0, 31, IOException.class, sample},
-                {emptyBuf(3), 28, 3, IOException.class, sample},
-                {emptyBuf(60), 0, 60, IOException.class, sample},
-                {emptyBuf(100), 10, 200, IllegalArgumentException.class, bigSample},
-                {emptyBuf(256), 41, 256, null, bigSample}
-                //{emptyBuf(64), 80, 8, null, bigSample},
-                //{emptyBuf(64), 0, 8, IOException.class, bigSample}
+                {null, 0, 0, NullPointerException.class, sample}, //T4
+                {emptyBuf(0), 0, 0, null, sample}, //T8
+                {emptyBuf(1), 0, 1, null, sample}, //T9
+                {emptyBuf(8), 0, 8, null, sample}, //T10
+                {emptyBuf(8), 1, 8, null, sample}, //T11
+                {emptyBuf(3), 5, 3, null, sample}, //T12
+                {emptyBuf(31), 0, 31, IOException.class, sample}, //T13
+                {emptyBuf(3), 28, 3, IOException.class, sample}, //T14
+                {emptyBuf(60), 0, 60, IOException.class, sample}, //T21
+                {emptyBuf(100), 10, 200, IllegalArgumentException.class, bigSample}, //T22
+                {emptyBuf(256), 41, 256, null, bigSample} //T23
         });
     }
 
