@@ -1,1 +1,2 @@
 org.apache.bookkeeper.bookie.BufferedChannel_ESTest_scaffolding
+org.apache.bookkeeper.bookie.storage.ldb.WriteCache_ESTest_scaffolding
