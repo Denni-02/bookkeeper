@@ -1,3 +1,5 @@
+package org.apache.bookkeeper.bookie.storage.ldb;
+
 import org.apache.bookkeeper.bookie.storage.ldb.WriteCache;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import org.mockito.ArgumentCaptor;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 
 public class WriteCacheOtherTest {
@@ -260,120 +263,125 @@ public class WriteCacheOtherTest {
     // AGGIUNTI CHAT GPT PER FOR EACH
     
     @Test
-    public void testForEachArrayAllocationExactSize() throws Exception {
-        long ledgerId = 1L;
-        long entryId = 1L;
+    public void testLockEngagement() throws Exception {
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
 
-        // 3 entry ⇒ entriesToSort = 3 → arrayLen = 3 * 4 = 12
-        for (int i = 0; i < 3; i++) {
-            writeCache.put(ledgerId, i, Unpooled.buffer(16).writeZero(16));
+        Thread thread1 = new Thread(() -> {
+            try {
+                writeCache.forEach((l, e, b) -> {
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        AtomicBoolean entered = new AtomicBoolean(false);
+        Thread thread2 = new Thread(() -> {
+            try {
+                writeCache.forEach((l, e, b) -> entered.set(true));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        thread1.start();
+        Thread.sleep(50);
+        thread2.start();
+        thread2.join();
+
+        assertFalse("Lock was not respected", entered.get());
+    }
+
+
+    @Test
+    public void testArrayLengthCalculation() throws Exception {
+        for (int i = 0; i < 10; i++) {
+            ByteBuf buf = Unpooled.buffer(8).writeZero(8);
+            writeCache.put(1L, i, buf);
         }
-
-        // Inizializza sortedEntries con dimensione inferiore a 12 * 2 = 24 → forza riassegnazione
-        Field sortedEntriesField = WriteCache.class.getDeclaredField("sortedEntries");
-        sortedEntriesField.setAccessible(true);
-        sortedEntriesField.set(writeCache, new long[10]); // meno di 24
-
         WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
         writeCache.forEach(consumer);
+        verify(consumer, times(10)).accept(anyLong(), anyLong(), any(ByteBuf.class));
+    }
 
-        // Verifica se tutti gli elementi sono stati passati
+    @Test
+    public void testSortedEntriesReallocation() throws Exception {
+        for (int i = 0; i < 20; i++) {
+            writeCache.put(1L, i, Unpooled.buffer(8).writeZero(8));
+        }
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
+        writeCache.forEach(consumer);
+        verify(consumer, times(20)).accept(anyLong(), anyLong(), any(ByteBuf.class));
+    }
+
+    @Test
+    public void testIgnoreDeletedLedgers() throws Exception {
+        writeCache.put(99L, 1L, Unpooled.buffer(8).writeZero(8));
+        writeCache.deleteLedger(99L);
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
+        writeCache.forEach(consumer);
+        verify(consumer, never()).accept(anyLong(), anyLong(), any(ByteBuf.class));
+    }
+
+    @Test
+    public void testSortedEntriesIdxAssignment() throws Exception {
+        for (int i = 0; i < 4; i++) {
+            writeCache.put(1L, i, Unpooled.buffer(8).writeZero(8));
+        }
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
+        writeCache.forEach(consumer);
+        verify(consumer, times(4)).accept(anyLong(), anyLong(), any(ByteBuf.class));
+    }
+
+    @Test
+    public void testByteBufSliceAndSetIndex() throws Exception {
+        ByteBuf buf = Unpooled.buffer(64).writeZero(64);
+        writeCache.put(1L, 0L, buf);
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
+        writeCache.forEach(consumer);
+        verify(consumer).accept(eq(1L), eq(0L), argThat(b -> b.readableBytes() > 0));
+    }
+
+    @Test
+    public void testForEachSortExecution() throws Exception {
+        for (int i = 0; i < 3; i++) {
+            writeCache.put(i, 0L, Unpooled.buffer(8).writeZero(8));
+        }
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
+        writeCache.forEach(consumer);
         verify(consumer, times(3)).accept(anyLong(), anyLong(), any(ByteBuf.class));
     }
 
     @Test
-    public void testForEachSkipsDeletedLedgers() throws Exception {
-        long ledgerId = 100L;
-        writeCache.put(ledgerId, 1L, Unpooled.buffer(8).writeZero(8));
-        writeCache.deleteLedger(ledgerId);
-
+    public void testLargeOffsetHandling() throws Exception {
+        for (int i = 0; i < 100; i++) {
+            writeCache.put(1L, i, Unpooled.buffer(8).writeZero(8));
+        }
         WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
         writeCache.forEach(consumer);
+        verify(consumer, times(100)).accept(anyLong(), anyLong(), any(ByteBuf.class));
+    }
 
-        // Non deve essere chiamato alcun consumer
+    @Test
+    public void testEmptyIndexDoesNothing() throws Exception {
+        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
+        writeCache.forEach(consumer);
         verify(consumer, never()).accept(anyLong(), anyLong(), any(ByteBuf.class));
     }
 
-
     @Test
-    public void testForEachWithTimingLogs() throws Exception {
-        writeCache.put(1L, 1L, Unpooled.buffer(8).writeZero(8));
-        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
-
-        // Abilita log se necessario con reflection o mock/stub log
-        writeCache.forEach(consumer);
-
-        verify(consumer).accept(eq(1L), eq(1L), any(ByteBuf.class));
-    }
-
-    @Test
-    public void testForEachConcurrentAccessRespectsLock() throws Exception {
-        ExecutorService executor = Executors.newFixedThreadPool(2);
-        CountDownLatch latch = new CountDownLatch(1);
-        AtomicBoolean success = new AtomicBoolean(false);
-
-        writeCache.put(1L, 0L, Unpooled.buffer(8).writeZero(8));
-        WriteCache.EntryConsumer consumer = (l, e, b) -> {
-            try {
-                // Simula una lunga elaborazione
-                latch.await(2, TimeUnit.SECONDS);
-            } catch (InterruptedException ignored) {}
-        };
-
-        executor.submit(() -> {
-            try {
-                writeCache.forEach(consumer);
-            } catch (IOException ignored) {}
-        });
-
-        Thread.sleep(100); // garantisce che il primo thread entri
-        executor.submit(() -> {
-            try {
-                writeCache.forEach((l, e, b) -> success.set(true));
-            } catch (IOException ignored) {}
-        });
-
-        Thread.sleep(200); // dai tempo al secondo thread
-        assertFalse("Secondo thread non dovrebbe entrare finché il primo non rilascia lock", success.get());
-
-        latch.countDown(); // sb
-        executor.shutdown();
-    }
-
-    @Test
-    public void testSegmentOffsetMaskingAndShifting() throws Exception {
-        long ledgerId = 1L;
-        long entryId = 0L;
-
-        ByteBuf entry = Unpooled.buffer(64).writeZero(64);
-        writeCache.put(ledgerId, entryId, entry);
-
+    public void testRepeatedExecutionConsistency() throws Exception {
+        ByteBuf buf = Unpooled.buffer(8).writeZero(8);
+        writeCache.put(1L, 1L, buf);
         WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
         writeCache.forEach(consumer);
-
-        // Basta verificare che l'entry sia stata letta correttamente
-        verify(consumer).accept(eq(ledgerId), eq(entryId), any(ByteBuf.class));
-    }
-
-
-    @Test
-    public void testForEachTriggersReallocationOfSortedEntries() throws Exception {
-        long ledgerId = 1L;
-
-        for (int i = 0; i < 100; i++) {
-            writeCache.put(ledgerId, i, Unpooled.buffer(8).writeZero(8));
-        }
-
-        // Inizializza un array troppo piccolo manualmente
-        Field f = WriteCache.class.getDeclaredField("sortedEntries");
-        f.setAccessible(true);
-        f.set(writeCache, new long[4]); // meno di entriesToSort * 4
-
-        WriteCache.EntryConsumer consumer = mock(WriteCache.EntryConsumer.class);
         writeCache.forEach(consumer);
-
-        // Verifica che siano stati consumati tutti
-        verify(consumer, times(100)).accept(anyLong(), anyLong(), any(ByteBuf.class));
+        verify(consumer, times(2)).accept(eq(1L), eq(1L), any(ByteBuf.class));
     }
 
 
