@@ -62,6 +62,8 @@ public class WriteCachePutTest extends WriteCacheTestBase {
         assertFalse("Entry più grande della cache deve essere rifiutata", result);
     }
 
+    // TEST FALLITO
+
     /*@Test
     public void testPutWithNegativeLedgerId() { // T7
         entry = bufferOfSize(1);
@@ -80,6 +82,8 @@ public class WriteCachePutTest extends WriteCacheTestBase {
             // atteso
         }
     }
+
+    // TEST FALLITO
 
     /*@Test
     public void testPutWithNegativeEntryId() { // T8
