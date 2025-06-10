@@ -1,0 +1,28 @@
+name: Jacoco Coverage - Dennis
+
+on:
+  push:
+    branches: [ testing-project-ISW2 ]
+
+jobs:
+  jacoco:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+
+      - name: Run Jacoco coverage at project root
+        run: mvn clean verify -Pjacoco-profile
+
+      - name: Upload Jacoco Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco
