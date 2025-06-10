@@ -20,8 +20,12 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
+      
+      - name: Build root to install dependencies
+        run: mvn clean install -DskipTests
 
-      - name: Run PIT Mutation Testing
+      - name: Run PIT in bookkeeper-server
+        working-directory: bookkeeper-server
         run: mvn clean test-compile org.pitest:pitest-maven:1.4.11:mutationCoverage
 
       - name: Upload PIT Report
