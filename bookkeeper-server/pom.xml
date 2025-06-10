@@ -280,22 +280,22 @@
         <configuration>
           <verbose>true</verbose>
           <targetClasses>
-            <!--<param>org.apache.bookkeeper.bookie.BufferedChannel</param>-->
+            <param>org.apache.bookkeeper.bookie.BufferedChannel</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache</param>
           </targetClasses>
           <targetTests>
-            <!--<param>org.apache.bookkeeper.bookie.BufferedChannelFewShotTest</param>
+            <param>org.apache.bookkeeper.bookie.BufferedChannelFewShotTest</param>
             <param>org.apache.bookkeeper.bookie.BufferedChannelOtherTest</param>
             <param>org.apache.bookkeeper.bookie.BufferedChannelReadTest</param>
             <param>org.apache.bookkeeper.bookie.BufferedChannelWriteTest</param>
-            <param>org.apache.bookkeeper.bookie.BufferedChannelRandoopTest</param>-->
+            <param>org.apache.bookkeeper.bookie.BufferedChannelRandoopTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCachePutTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCacheGetTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCacheOtherTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.RegressionTest0</param>
           </targetTests>
           <excludedTestClasses>
-            <!--<param>org.apache.bookkeeper.bookie.BufferedChannel_ESTest*</param>-->
+            <param>org.apache.bookkeeper.bookie.BufferedChannel_ESTest*</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache_ESTest*</param>
           </excludedTestClasses>
           <outputFormats>
