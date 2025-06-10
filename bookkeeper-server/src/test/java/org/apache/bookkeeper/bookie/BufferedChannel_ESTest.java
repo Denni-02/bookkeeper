@@ -620,7 +620,7 @@ public class BufferedChannel_ESTest extends BufferedChannel_ESTest_scaffolding {
       MockFileInputStream mockFileInputStream0 = new MockFileInputStream("ML2!Z!(Bq*@LJuO");
       FileChannel fileChannel0 = mockFileInputStream0.getChannel();
       BufferedChannel bufferedChannel0 = new BufferedChannel(unpooledByteBufAllocator0, fileChannel0, 569, 1L);
-      bufferedChannel0.getNumOfBytesInWriteBuffer();
+      bufferedChannel0.umOfBytesInWriteBuffer();
       assertEquals(0L, bufferedChannel0.getFileChannelPosition());
   }
 

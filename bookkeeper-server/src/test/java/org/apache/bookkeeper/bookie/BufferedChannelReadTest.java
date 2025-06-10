@@ -40,6 +40,9 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
 
         return Arrays.asList(new Object[][]{
                 {null, 0, 0, NullPointerException.class, sample}, //T4
+                //{emptyBuf(0), -1, -1, IllegalArgumentException.class, sample}, //T5
+                //{emptyBuf(0), -1, 0, IllegalArgumentException.class, sample}, //T6
+                //{emptyBuf(0), 0, -1, IllegalArgumentException.class, sample} ,//T7
                 {emptyBuf(0), 0, 0, null, sample}, //T8
                 {emptyBuf(1), 0, 1, null, sample}, //T9
                 {emptyBuf(8), 0, 8, null, sample}, //T10
