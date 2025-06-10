@@ -1,13 +1,11 @@
-name: Build BookKeeper - Dennis Tests
+name: Jacoco Coverage - Dennis
 
 on:
   push:
     branches: [ testing-project-ISW2 ]
-  pull_request:
-    branches: [ testing-project-ISW2 ]
 
 jobs:
-  build:
+  jacoco:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +18,11 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
 
-      - name: Build with Maven (no original tests)
-        run: mvn -B clean install
+      - name: Run Jacoco coverage at project root
+        run: mvn clean verify -Pjacoco-profile
+
+      - name: Upload Jacoco Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report
+          path: target/site/jacoco
