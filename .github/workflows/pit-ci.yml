@@ -1,8 +1,7 @@
 name: PIT Mutation Testing - Dennis
 
 on:
-  push:
-    branches: [ testing-project-ISW2 ]
+  workflow_dispatch: 
 
 jobs:
   pit:

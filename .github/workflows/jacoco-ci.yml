@@ -1,8 +1,7 @@
 name: Jacoco Coverage - Dennis
 
 on:
-  push:
-    branches: [ testing-project-ISW2 ]
+  workflow_dispatch: 
 
 jobs:
   jacoco:
