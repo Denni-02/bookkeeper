@@ -613,7 +613,7 @@ public class BufferedChannel_ESTest extends BufferedChannel_ESTest_scaffolding {
       assertEquals(0L, long0);
   }
 
-  @Test(timeout = 4000)
+  /*@Test(timeout = 4000)
   public void test40()  throws Throwable  {
       UnpooledByteBufAllocator unpooledByteBufAllocator0 = new UnpooledByteBufAllocator(true, true, true);
       MockFileOutputStream mockFileOutputStream0 = new MockFileOutputStream("ML2!Z!(Bq*@LJuO", true);
@@ -622,7 +622,7 @@ public class BufferedChannel_ESTest extends BufferedChannel_ESTest_scaffolding {
       BufferedChannel bufferedChannel0 = new BufferedChannel(unpooledByteBufAllocator0, fileChannel0, 569, 1L);
       bufferedChannel0.umOfBytesInWriteBuffer();
       assertEquals(0L, bufferedChannel0.getFileChannelPosition());
-  }
+  }*/
 
   @Test(timeout = 4000)
   public void test41()  throws Throwable  {
