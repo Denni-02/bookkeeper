@@ -35,11 +35,11 @@ public class BufferedChannel_WriteTest extends BufferedChannel_TestBase {
     public void writeWhenBufferIsNull() { // T1
         try {
             sut.write(null); // prova a scrivere nulle
-            fail("Expected NullPointerException");
+            fail("Ci aspettiamo NullPointerException");
         } catch (NullPointerException e) {
             // expected: test passa
         } catch (Exception e) {
-            fail("Expected NullPointerException but got: " + e);
+            fail("Ci aspettavamo NullPointerException ma è stato ottenuto: " + e);
         }
     }
 

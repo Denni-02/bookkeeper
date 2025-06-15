@@ -21,7 +21,7 @@ public class WriteCache_PutTest extends WriteCache_TestBase {
     public void testPutWithNullEntry() { // T1
         try {
             sut.put(0, 0, null);
-            fail("Expected NullPointerException");
+            fail("Ci aspettavamo NullPointerException");
         } catch (NullPointerException e) {
             // atteso
         }
@@ -77,7 +77,7 @@ public class WriteCache_PutTest extends WriteCache_TestBase {
         entry = bufferOfSize(1);
         try {
             sut.put(-1, 0, entry);
-            fail("Expected IllegalArgumentException");
+            fail("Ci aspettavamo IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             // atteso
         }
@@ -97,7 +97,7 @@ public class WriteCache_PutTest extends WriteCache_TestBase {
         entry = bufferOfSize(1);
         try {
             sut.put(0, -1, entry);
-            fail("Expected IllegalArgumentException");
+            fail("Ci aspettavamo  IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             // atteso
         }

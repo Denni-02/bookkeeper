@@ -92,7 +92,7 @@ public class WriteCache_OtherTest {
         // Chiediamo se esiste l'entryId = 0 nel ledgerId = 999 (che non è mai stato usato)
         boolean result = writeCache.hasEntry(999L, 0L);
         // Ci aspettiamo false
-        assertTrue("Expected false when ledger does not exist", !result);
+        assertTrue("Ci aspettiamo false se ledger non esiste", !result);
     }
 
      @Test
@@ -104,7 +104,7 @@ public class WriteCache_OtherTest {
         // Verifichiamo se hasEntry riconosce l'entry appena inserita
         boolean result = writeCache.hasEntry(1L, 0L);
         // Ci aspettiamo true
-        assertTrue("Expected true when entry is present", result);
+        assertTrue("Ci aspettiamo true quando l'entry è presente", result);
     }
 
     @Test
@@ -114,14 +114,14 @@ public class WriteCache_OtherTest {
         // Chiediamo se esiste un'entry con entryId = 999 nel ledger 1
         boolean result = writeCache.hasEntry(1L, 999L);
         // Ci aspettiamo false
-        assertTrue("Expected false when entry is missing in existing ledger", !result);
+        assertTrue("Ci aspettiamo false quando l'entry manca nel ledger esistenter", !result);
     }
     
     /*@Test
     public void testHasEntry_NegativeLedgerId() { // T18
         boolean result = writeCache.hasEntry(-1L, 0L);
         // Ci aspettiamo false
-        assertTrue("Expected false when ledgerId is negative", !result);
+        assertTrue("Ci aspettiamo false se l'id è negativo ", !result);
     }*/
 
     @Test
@@ -132,7 +132,7 @@ public class WriteCache_OtherTest {
         // Interroghiamo il metodo con entryId negativo
         boolean result = writeCache.hasEntry(1L, -1L);
         // Ci aspettiamo false
-        assertTrue("Expected false when entryId is negative", !result);
+        assertTrue("Ci aspettiamo false se l'id è negativo", !result);
     }
 
    @Test(expected = IllegalArgumentException.class) // T18 bis
@@ -164,7 +164,7 @@ public class WriteCache_OtherTest {
         writeCache.deleteLedger(1L);
 
         // La entry non dovrebbe essere più accessibile
-        assertTrue("Entry should be removed after deletion", !writeCache.hasEntry(1L, 0L));
+        assertTrue("Entry dovremme essere rimossa", !writeCache.hasEntry(1L, 0L));
     }*/
 
     
@@ -212,7 +212,7 @@ public class WriteCache_OtherTest {
         // Cerco ultima entry di un ledgerId in cui non ne è stata inserita nessuna
         ByteBuf result = writeCache.getLastEntry(1L);
         // Ci aspettiamo null
-        assertTrue("Expected null when ledger has no entries", result == null);
+        assertTrue("Ci aspettiamo null se il ledger non ha entryes", result == null);
     }
 
     @Test
@@ -221,7 +221,7 @@ public class WriteCache_OtherTest {
         writeCache.put(1L, 0L, entry); // Inseriamo un'unica entry
 
         ByteBuf result = writeCache.getLastEntry(1L);
-        assertTrue("Expected entry with content 'abcd'", result != null && result.readableBytes() == entry.readableBytes());
+        assertTrue("Ci aspettiamo entry con contenuto 'abcd'", result != null && result.readableBytes() == entry.readableBytes());
     }
 
     @Test
@@ -237,14 +237,14 @@ public class WriteCache_OtherTest {
         byte[] content = new byte[result.readableBytes()];
         result.readBytes(content);
         String str = new String(content);
-        assertTrue("Expected last entry content 'a2'", str.contains("a2"));
+        assertTrue("Ci aspettiamo che ultima entry contenga 'a2'", str.contains("a2"));
     }
 
     /*@Test
     public void testGetLastEntry_NegativeLedgerId_ReturnsNull() { // T27
         ByteBuf result = writeCache.getLastEntry(-1L);
         // Ci aspettiamo null (ledger mai usato)
-        assertTrue("Expected null for negative ledgerId", result == null);
+        assertTrue("Ci aspettiamo false se l'id è negativo", result == null);
     }*/
 
 

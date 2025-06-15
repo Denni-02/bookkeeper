@@ -63,7 +63,7 @@ public class BufferedChannel_ReadTest extends BufferedChannel_TestBase {
 
             // se ti aspetti eccezione ma non è stata lanciata
             if (expected != null) {
-                fail("Expected exception: " + expected.getSimpleName());
+                fail("Ci aspettavamo exception: " + expected.getSimpleName());
             }
 
             // se ti aspetti successo, ma è una short read
@@ -83,7 +83,7 @@ public class BufferedChannel_ReadTest extends BufferedChannel_TestBase {
                 throw t;
             }
             if (!expected.isInstance(t)) {
-                throw new AssertionError("Expected " + expected.getSimpleName() + " but got: " + t.getClass().getSimpleName(), t);
+                throw new AssertionError("Ci aspettavamo" + expected.getSimpleName() + " ma ottenuto: " + t.getClass().getSimpleName(), t);
             }
         }
     }
