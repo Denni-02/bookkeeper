@@ -290,7 +290,7 @@
             <param>org.apache.bookkeeper.bookie.BufferedChannel_WriteTest</param>
             <param>org.apache.bookkeeper.bookie.BufferedChannel_RandoopTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache_PutTest</param>
-            <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCacheGetTest</param>
+            <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache_GetTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache_OtherTest</param>
             <param>org.apache.bookkeeper.bookie.storage.ldb.WriteCache_RandoopTest</param>
           </targetTests>

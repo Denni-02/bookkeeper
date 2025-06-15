@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class WriteCacheGetTest extends WriteCache_TestBase {
+public class WriteCache_GetTest extends WriteCache_TestBase {
 
     @Test
     public void testGetFromNonExistentLedger() { // T11
