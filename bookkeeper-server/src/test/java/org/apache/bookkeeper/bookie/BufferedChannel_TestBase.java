@@ -7,9 +7,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
-public class BufferedChannelTestBase {
+public class BufferedChannel_TestBase {
 
     protected final FileChannel fileChannelMock; // mock di FileChannel, simulato con Mockito
     protected final BufferedChannel sut; // System Under Test
@@ -18,7 +17,7 @@ public class BufferedChannelTestBase {
     private byte[] writtenBytes = new byte[0]; // byte scritti nel mock del FileChannel
     private long position = 0; // posizione corrente nel FileChannel
 
-    public BufferedChannelTestBase() throws IOException {
+    public BufferedChannel_TestBase() throws IOException {
         
         // Inizializzazione mock e sut
         fileChannelMock = Mockito.mock(FileChannel.class);

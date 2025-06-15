@@ -5,9 +5,8 @@ import io.netty.buffer.ByteBufAllocator;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import org.junit.Before;
-import java.util.concurrent.atomic.AtomicLong;
 
-public class WriteCacheTestBase {
+public class WriteCache_TestBase {
 
     protected WriteCache sut; // System Under Test
     protected ByteBufAllocator allocator; // allocatore buffer

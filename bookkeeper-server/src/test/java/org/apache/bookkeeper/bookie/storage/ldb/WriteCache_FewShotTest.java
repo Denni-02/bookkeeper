@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.buffer.Unpooled;
-import org.apache.bookkeeper.bookie.storage.ldb.WriteCache;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,7 +12,7 @@ import java.io.IOException;
 
 
 
-public class WriteCacheFewShotTest {
+public class WriteCache_FewShotTest {
     private WriteCache cache;
 
     @Before

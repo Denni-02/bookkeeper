@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class WriteCachePutTest extends WriteCacheTestBase {
+public class WriteCache_PutTest extends WriteCache_TestBase {
 
     private ByteBuf entry;
 

@@ -10,9 +10,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import java.lang.reflect.Field;
 
-public class BufferedChannelOtherTest extends BufferedChannelTestBase {
+public class BufferedChannel_OtherTest extends BufferedChannel_TestBase {
 
-    public BufferedChannelOtherTest() throws IOException {
+    public BufferedChannel_OtherTest() throws IOException {
         super();
     }
 

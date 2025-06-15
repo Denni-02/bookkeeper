@@ -10,7 +10,7 @@ import java.util.Collection;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class BufferedChannelReadTest extends BufferedChannelTestBase{
+public class BufferedChannel_ReadTest extends BufferedChannel_TestBase {
 
     private final ByteBuf dest;
     private final int pos;
@@ -18,7 +18,7 @@ public class BufferedChannelReadTest extends BufferedChannelTestBase{
     private final Class<? extends Throwable> expected;
     private final String written;
 
-    public BufferedChannelReadTest(ByteBuf dest, int pos, int len, Class<? extends Throwable> expected, String written) throws IOException {
+    public BufferedChannel_ReadTest(ByteBuf dest, int pos, int len, Class<? extends Throwable> expected, String written) throws IOException {
         super();
         this.dest = dest; //  buffer destinazione in cui BufferedChannel scriverà i byte letti.
         this.pos = pos; // posizione da cui cominciare a leggere nel file simulato

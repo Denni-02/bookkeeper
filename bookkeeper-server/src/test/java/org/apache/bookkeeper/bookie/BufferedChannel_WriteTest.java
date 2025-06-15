@@ -15,11 +15,11 @@ import static org.mockito.Mockito.verify;
 import java.nio.ByteBuffer;
 
 
-public class BufferedChannelWriteTest extends BufferedChannelTestBase {
+public class BufferedChannel_WriteTest extends BufferedChannel_TestBase {
 
     private ByteBuf buf;
 
-    public BufferedChannelWriteTest() throws Exception {
+    public BufferedChannel_WriteTest() throws Exception {
         super();
     }
 

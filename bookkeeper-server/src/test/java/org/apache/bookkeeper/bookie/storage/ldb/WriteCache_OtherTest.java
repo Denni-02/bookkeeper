@@ -1,6 +1,5 @@
 package org.apache.bookkeeper.bookie.storage.ldb;
 
-import org.apache.bookkeeper.bookie.storage.ldb.WriteCache;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.buffer.UnpooledByteBufAllocator;
@@ -8,20 +7,15 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.assertTrue;
-import java.lang.reflect.Field;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.io.IOException;
-import org.mockito.ArgumentCaptor;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.*;
 
 
-public class WriteCacheOtherTest {
+public class WriteCache_OtherTest {
 
     private WriteCache writeCache;
 

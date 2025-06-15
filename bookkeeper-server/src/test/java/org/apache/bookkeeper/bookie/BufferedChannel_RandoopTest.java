@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class BufferedChannelRandoopTest{
+public class BufferedChannel_RandoopTest {
 
     public static boolean debug = false;
 

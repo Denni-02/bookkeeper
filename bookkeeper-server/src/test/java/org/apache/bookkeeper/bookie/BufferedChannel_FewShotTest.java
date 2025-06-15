@@ -6,21 +6,18 @@ import io.netty.buffer.Unpooled;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InOrder;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.util.concurrent.atomic.AtomicLong;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BufferedChannelFewShotTest {
+public class BufferedChannel_FewShotTest {
 
     @Mock
     private FileChannel mockFileChannel;
